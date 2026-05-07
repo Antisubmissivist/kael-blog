@@ -1,9 +1,8 @@
 """
-Update all 13 article HTML files — amber palette + working i18n + giscus.
+Update all 13 article HTML files — amber palette + i18n + giscus + Google Translate widget.
 """
 import os
 import re
-import html as html_module
 
 BASE_DIR = r"C:\Users\Antist\.openclaw\workspace\cloudflare-website\kaelblog.com"
 ARTICLES_DIR = os.path.join(BASE_DIR, "articles")
@@ -139,6 +138,9 @@ CSS_BLOCK = """
         }
         .lang-switch button:hover,
         .lang-switch button.active { border-color: var(--accent); color: var(--accent); }
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
         #comments { padding: 64px 0; border-top: 1px solid var(--border); }
         .giscus-title {
             font-family: 'Playfair Display', Georgia, serif;
@@ -160,13 +162,28 @@ CSS_BLOCK = """
         }
 """
 
+TRANSLATE_SCRIPT = """
+        <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'zh-CN',
+                includedLanguages: 'en,ja,ko,es,fr,de,zh-CN,zh-TW',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+"""
+
 I18N_JS = """
 <script>
 var i18n = {
-    zh: { back: '\u8fd4\u56de\u6587\u7ae0\u5217\u8868', comments_title: '\u8bc4\u8bba', comments_powered: '\u7531 Giscus \u63d0\u4f9b\u652f\u6301 \u2014 \u4f7f\u7528 GitHub \u8d26\u53f7\u767b\u5f55\u540e\u5373\u53ef\u8bc4\u8bba' },
-    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus \u2014 Sign in with GitHub to comment' },
-    ja: { back: '\u8a18\u4e8b\u30ea\u30b9\u30c8\u306b\u623b\u308b', comments_title: '\u30b3\u30e1\u30f3\u30c8', comments_powered: 'Giscus \u63d0\u4f9b \u2014 GitHub\u30a2\u30ab\u30a6\u30f3\u30c8\u3067\u30ed\u30b0\u30a4\u30f3\u3057\u3066\u30b3\u30e1\u30f3\u30c8' }
+    zh: { back: '\\u8fd4\\u56de\\u6587\\u7ae0\\u5217\\u8868', comments_title: '\\u8bc4\\u8bba', comments_powered: '\\u7531 Giscus \\u63d0\\u4f9b\\u652f\\u6301 \\u2014 \\u4f7f\\u7528 GitHub \\u8d26\\u53f7\\u767b\\u5f55\\u540e\\u5373\\u53ef\\u8bc4\\u8bba' },
+    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus \\u2014 Sign in with GitHub to comment' },
+    ja: { back: '\\u8a18\\u4e8b\\u30ea\\u30b9\\u30c8\\u306b\\u623b\\u308b', comments_title: '\\u30b3\\u30e1\\u30f3\\u30c8', comments_powered: 'Giscus \\u63d0\\u4f9b \\u2014 GitHub\\u30a2\\u30ab\\u30a6\\u30f3\\u30c8\\u3067\\u30ed\\u30b0\\u30a4\\u30f3\\u3057\\u3066\\u30b3\\u30e1\\u30f3\\u30c8' }
 };
+
 function applyLang(lang) {
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
@@ -174,18 +191,43 @@ function applyLang(lang) {
     });
     localStorage.setItem('kaelblog-lang', lang);
 }
+
+function translatePage(lang) {
+    var gtcFrame = document.querySelector('.goog-te-banner-frame');
+    if (gtcFrame) { gtcFrame.style.display = 'none'; }
+
+    if (lang === 'zh') {
+        if (typeof google !== 'undefined' && google.translate) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+        }
+        applyLang(lang);
+        return;
+    }
+
+    var langMap = { en: 'en', ja: 'ja' };
+    var gLang = langMap[lang] || lang;
+
+    if (typeof google !== 'undefined' && google.translate) {
+        var sel = document.querySelector('.goog-te-combo');
+        if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+    }
+    applyLang(lang);
+}
+
 document.querySelectorAll('.lang-switch button').forEach(function(btn) {
     btn.addEventListener('click', function() {
         document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        applyLang(btn.getAttribute('data-lang'));
+        translatePage(btn.getAttribute('data-lang'));
     });
 });
+
 var saved = localStorage.getItem('kaelblog-lang') || 'zh';
 document.querySelectorAll('.lang-switch button').forEach(function(btn) {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
 });
-if (saved !== 'zh') applyLang(saved);
+if (saved !== 'zh') translatePage(saved);
 </script>
 """
 
@@ -218,7 +260,11 @@ GISCUS_HTML = """
 """
 
 def extract_article_content(content):
-    """Find the article body content from the HTML file."""
+    # Try <article> tag first (already-rewritten files)
+    m = re.search(r'<article>(.*?)</article>', content, re.DOTALL)
+    if m:
+        return m.group(1).strip()
+    # Fallback: <div class="article-body">
     ab_start = content.find('<div class="article-body">')
     if ab_start < 0:
         return None
@@ -227,8 +273,7 @@ def extract_article_content(content):
     first_div = search_slice.find('</div>')
     if first_div < 0:
         return None
-    article_text = content[search_from:search_from + first_div]
-    return article_text
+    return content[search_from:search_from + first_div]
 
 def update_article(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -238,10 +283,11 @@ def update_article(filepath):
     if not title_match:
         return False
     title = title_match.group(1)
-    title_clean = title.replace(' \u2014 Kael\'s Blog', '')
+    title_clean = title.replace(" — Kael's Blog", "").replace(" — Kael's Blog", "")
 
     article_text = extract_article_content(content)
     if article_text is None:
+        print("  Could not extract article body from", filepath)
         return False
 
     date_match = re.search(r'(\d{4}-\d{2}-\d{2})', content)
@@ -250,7 +296,51 @@ def update_article(filepath):
     tag_matches = re.findall(r'<span class="tag[^"]*">([^<]+)</span>', content)
     tags_html = ''.join('<span class="tag">' + t.strip() + '</span>' for t in tag_matches[:4])
 
-    html = '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>' + title + ' \u2014 Kael\'s Blog</title>\n    <link rel="icon" type="image/svg+xml" href="../favicon.svg">\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">\n    <style>\n' + CSS_BLOCK + '\n    </style>\n</head>\n<body>\n\n<header>\n    <div class="container">\n        <a href="../index.html" class="back">\n            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>\n            <span data-i18n="back">返回文章列表</span>\n        </a>\n        <h1>' + title_clean + '</h1>\n        <div class="meta">\n            <span class="meta-date">' + date_str + '</span>\n            <div class="meta-tags">' + tags_html + '</div>\n            <div class="lang-switch" style="margin-left: auto;">\n                <button data-lang="zh" class="active">ZH</button>\n                <button data-lang="en">EN</button>\n                <button data-lang="ja">JA</button>\n            </div>\n        </div>\n    </div>\n</header>\n\n<main>\n    <div class="container">\n        <article>\n' + article_text + '\n        </article>\n    </div>\n</main>\n\n' + GISCUS_HTML + '\n' + I18N_JS + '\n</body>\n</html>'
+    html = (
+        '<!DOCTYPE html>\n'
+        '<html lang="zh-CN">\n'
+        '<head>\n'
+        '    <meta charset="UTF-8">\n'
+        '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+        '    <title>' + title + ' — Kael\'s Blog</title>\n'
+        '    <link rel="icon" type="image/svg+xml" href="../favicon.svg">\n'
+        '    <link rel="preconnect" href="https://fonts.googleapis.com">\n'
+        '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+        '    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">\n'
+        '    <style>\n' + CSS_BLOCK + '\n    </style>\n'
+        '    ' + TRANSLATE_SCRIPT.strip() + '\n'
+        '</head>\n'
+        '<body>\n\n'
+        '<header>\n'
+        '    <div class="container">\n'
+        '        <a href="../index.html" class="back">\n'
+        '            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>\n'
+        '            <span data-i18n="back">返回文章列表</span>\n'
+        '        </a>\n'
+        '        <h1>' + title_clean + '</h1>\n'
+        '        <div class="meta">\n'
+        '            <span class="meta-date">' + date_str + '</span>\n'
+        '            <div class="meta-tags">' + tags_html + '</div>\n'
+        '            <div class="lang-switch">\n'
+        '                <button data-lang="zh" class="active">ZH</button>\n'
+        '                <button data-lang="en">EN</button>\n'
+        '                <button data-lang="ja">JA</button>\n'
+        '            </div>\n'
+        '            <div id="google_translate_element"></div>\n'
+        '        </div>\n'
+        '    </div>\n'
+        '</header>\n\n'
+        '<main>\n'
+        '    <div class="container">\n'
+        '        <article>\n' + article_text + '\n'
+        '        </article>\n'
+        '    </div>\n'
+        '</main>\n\n'
+        + GISCUS_HTML + '\n'
+        + I18N_JS + '\n'
+        '</body>\n'
+        '</html>'
+    )
 
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(html)
