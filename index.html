@@ -366,6 +366,11 @@
             color: var(--accent);
         }
 
+        /* ===== GOOGLE TRANSLATE ===== */
+        .goog-te-banner { display: none !important; }
+        #google_translate_element { display: none; }
+        .goog-te-gadget { font-size: 0 !important; }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
             .about-grid { grid-template-columns: 1fr; }
@@ -383,8 +388,21 @@
             .post-meta { flex-direction: column; align-items: flex-start; gap: 6px; }
         }
     </style>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'zh-CN',
+        includedLanguages: 'zh-CN,en,ja',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element')
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
+
+<div id="google_translate_element"></div>
 
 <nav>
     <div class="container">
@@ -396,9 +414,9 @@
                 <a href="https://github.com" target="_blank">GitHub</a>
             </div>
             <div class="lang-switch">
-                <button class="active" data-lang="zh">ZH</button>
-                <button data-lang="en">EN</button>
-                <button data-lang="ja">JA</button>
+                <button data-lang="zh" onclick="(function(){var s=document.querySelector('.goog-te-combo');if(s)s.value='zh-CN';var e=document.createEvent('Event');e.initEvent('change',true,true);s.dispatchEvent(e)})()">ZH</button>
+                <button data-lang="en" onclick="(function(){var s=document.querySelector('.goog-te-combo');if(s)s.value='en';var e=document.createEvent('Event');e.initEvent('change',true,true);s.dispatchEvent(e)})()">EN</button>
+                <button data-lang="ja" onclick="(function(){var s=document.querySelector('.goog-te-combo');if(s)s.value='ja';var e=document.createEvent('Event');e.initEvent('change',true,true);s.dispatchEvent(e)})()">JA</button>
             </div>
         </div>
     </div>
