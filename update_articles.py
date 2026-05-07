@@ -1,35 +1,26 @@
-# -*- coding: utf-8 -*-
-"""Batch update all article HTML files with the enhanced blog stylesheet."""
-
+"""
+Update all 13 article HTML files — amber palette + working i18n + giscus.
+"""
 import os
 import re
+import html as html_module
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = r"C:\Users\Antist\.openclaw\workspace\cloudflare-website\kaelblog.com"
 ARTICLES_DIR = os.path.join(BASE_DIR, "articles")
 
-ARTICLE_CSS = """
-    <style>
+CSS_BLOCK = """
         :root {
-            --bg: #080b14;
-            --bg-2: #0d1120;
-            --surface: #0f1422;
-            --surface-2: #161b2e;
-            --border: #1e2744;
-            --text: #e8eaf6;
-            --text-muted: #6b7ab8;
-            --text-dim: #4a5580;
-            --accent: #7c5cfc;
-            --accent-2: #5b8dee;
-            --accent-warm: #f0a050;
-            --accent-green: #56d364;
-            --accent-purple: #d2a8ff;
-            --tag-bg: #1a1f35;
-            --radius: 12px;
-            --radius-sm: 8px;
-            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow: 0 4px 24px rgba(0,0,0,0.4);
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -38,57 +29,25 @@ ARTICLE_CSS = """
             color: var(--text);
             line-height: 1.8;
             min-height: 100vh;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
-
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.025;
             pointer-events: none;
             z-index: 1000;
-            animation: grainShift 0.5s steps(1) infinite;
         }
-        @keyframes grainShift {
-            0%   { transform: translate(0,0); }
-            25%  { transform: translate(-2px, 1px); }
-            50%  { transform: translate(1px,-1px); }
-            75%  { transform: translate(-1px, 2px); }
-            100% { transform: translate(2px, 0); }
-        }
-
         a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
         a:hover { color: var(--text); }
-
         .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-
         header {
-            padding: 44px 0 36px;
+            padding: 48px 0 40px;
             border-bottom: 1px solid var(--border);
             margin-bottom: 52px;
-            position: relative;
-            overflow: hidden;
         }
-        header::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(124,92,252,0.1) 0%, transparent 65%);
-            pointer-events: none;
-            animation: headerGlow 8s ease-in-out infinite alternate;
-        }
-        @keyframes headerGlow {
-            0%   { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-        header .container { position: relative; z-index: 1; }
-
         .back {
             font-size: 13px;
             color: var(--text-muted);
@@ -98,339 +57,219 @@ ARTICLE_CSS = """
             gap: 6px;
             transition: color var(--transition);
             font-weight: 500;
+            cursor: pointer;
         }
-        .back:hover { color: var(--text); }
-        .back svg { transition: transform var(--transition); }
-        .back:hover svg { transform: translateX(-3px); }
-
+        .back:hover { color: var(--accent); }
         h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 14px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
             color: var(--text);
-            animation: fadeSlideUp 0.6s 0.1s cubic-bezier(0.4,0,0.2,1) both;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
         }
-        @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .meta {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-            animation: fadeSlideUp 0.6s 0.2s cubic-bezier(0.4,0,0.2,1) both;
-        }
-        .meta-date {
-            font-size: 12px;
-            color: var(--text-dim);
-            font-weight: 500;
-        }
+        .meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .meta-date { font-size: 13px; color: var(--text-dim); font-weight: 400; }
+        .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; }
         .tag {
             font-size: 11px;
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-weight: 500;
-            transition: transform var(--transition), box-shadow var(--transition);
-        }
-        .tag:hover { transform: translateY(-1px); }
-        .tag.ai          { background: rgba(124,92,252,0.15); color: var(--accent); border: 1px solid rgba(124,92,252,0.2); }
-        .tag.philosophy  { background: rgba(240,160,80,0.15); color: var(--accent-warm); border: 1px solid rgba(240,160,80,0.2); }
-        .tag.workflow    { background: rgba(86,211,100,0.15); color: var(--accent-green); border: 1px solid rgba(86,211,100,0.2); }
-        .tag.read        { background: rgba(210,168,255,0.15); color: var(--accent-purple); border: 1px solid rgba(210,168,255,0.2); }
-
-        .article-body {
-            font-size: 15px;
-            animation: fadeSlideUp 0.6s 0.3s cubic-bezier(0.4,0,0.2,1) both;
-        }
-        .article-body p {
-            margin-bottom: 20px;
+            padding: 3px 10px;
+            border-radius: var(--radius);
+            font-weight: 400;
+            border: 1px solid var(--border);
             color: var(--text-muted);
-            line-height: 1.85;
+            transition: border-color var(--transition), color var(--transition);
         }
-        .article-body h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 17px;
+        .tag:hover { border-color: var(--border-hover); color: var(--accent); }
+        article { font-size: 16px; color: var(--text-muted); line-height: 1.85; padding-bottom: 80px; }
+        article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
             color: var(--text);
-            margin: 36px 0 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin: 48px 0 16px; line-height: 1.4;
         }
-        .article-body h3::before {
-            content: '';
-            display: inline-block;
-            width: 3px;
-            height: 16px;
-            background: linear-gradient(180deg, var(--accent), var(--accent-2));
-            border-radius: 2px;
-            flex-shrink: 0;
+        article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 18px; font-weight: 500;
+            color: var(--text);
+            margin: 36px 0 12px;
         }
-        .article-body ul,
-        .article-body ol {
-            padding-left: 24px;
-            margin-bottom: 20px;
-            color: var(--text-muted);
-        }
-        .article-body li { margin-bottom: 8px; }
-        .article-body blockquote {
+        article p { margin-bottom: 20px; }
+        article strong { color: var(--text); font-weight: 600; }
+        article blockquote {
             border-left: 3px solid var(--accent);
-            padding: 12px 20px;
+            padding: 16px 20px;
             margin: 28px 0;
-            background: var(--surface);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius) var(--radius) 0;
             color: var(--text-muted);
-            font-style: italic;
-            font-size: 15px;
-            line-height: 1.75;
-            position: relative;
         }
-        .article-body blockquote::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: 12px;
-            font-size: 48px;
-            color: var(--accent);
-            opacity: 0.3;
-            line-height: 1;
-        }
-        .article-body code {
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
-            font-size: 13px;
-            background: var(--surface-2);
+        article ul, article ol { padding-left: 24px; margin-bottom: 20px; }
+        article li { margin-bottom: 8px; }
+        article code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: var(--bg-card);
             padding: 2px 6px;
             border-radius: 4px;
-            color: var(--accent-purple);
-            border: 1px solid var(--border);
+            color: var(--accent);
         }
-        .article-body pre {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 16px 20px;
-            margin: 20px 0;
-            overflow-x: auto;
-        }
-        .article-body pre code {
-            background: none;
-            border: none;
-            padding: 0;
-            color: var(--text-muted);
-        }
-        .article-body strong { color: var(--text); font-weight: 600; }
-
-        .comments {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            position: relative;
-        }
-        .comments::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.3;
-        }
-        .comments h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 16px;
-            color: var(--text);
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        .comment-placeholder {
-            background: var(--surface);
+        article pre {
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 28px 24px;
-            text-align: center;
+            padding: 20px 24px;
+            overflow-x: auto;
+            margin: 24px 0;
         }
-        .comment-placeholder p {
-            font-size: 14px;
+        article pre code { background: none; padding: 0; color: var(--text); }
+        article hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+        .lang-switch { display: flex; gap: 4px; font-size: 12px; }
+        .lang-switch button {
+            background: none;
+            border: 1px solid var(--border);
             color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all var(--transition);
+        }
+        .lang-switch button:hover,
+        .lang-switch button.active { border-color: var(--accent); color: var(--accent); }
+        #comments { padding: 64px 0; border-top: 1px solid var(--border); }
+        .giscus-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
             margin-bottom: 8px;
         }
-        .comment-placeholder p:last-child { margin-bottom: 0; }
-        .comment-placeholder a { color: var(--accent); }
-        .comment-placeholder a:hover { text-decoration: underline; }
-
-        footer {
-            padding: 52px 0;
-            margin-top: 72px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            position: relative;
+        .giscus-powered { font-size: 13px; color: var(--text-dim); margin-bottom: 28px; }
+        .giscus-container {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            background: var(--bg-card);
         }
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.4;
-        }
-        footer p { font-size: 13px; color: var(--text-dim); }
-
         @media (max-width: 600px) {
-            h1 { font-size: 22px; }
-            header { padding: 32px 0 28px; margin-bottom: 36px; }
-            .article-body { font-size: 14px; }
-            .article-body h3 { font-size: 16px; }
-            .article-body blockquote { font-size: 14px; }
+            h1 { font-size: 26px; }
+            article { font-size: 15px; }
+            article h2 { font-size: 19px; }
         }
-    </style>
 """
 
+I18N_JS = """
+<script>
+var i18n = {
+    zh: { back: '\u8fd4\u56de\u6587\u7ae0\u5217\u8868', comments_title: '\u8bc4\u8bba', comments_powered: '\u7531 Giscus \u63d0\u4f9b\u652f\u6301 \u2014 \u4f7f\u7528 GitHub \u8d26\u53f7\u767b\u5f55\u540e\u5373\u53ef\u8bc4\u8bba' },
+    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus \u2014 Sign in with GitHub to comment' },
+    ja: { back: '\u8a18\u4e8b\u30ea\u30b9\u30c8\u306b\u623b\u308b', comments_title: '\u30b3\u30e1\u30f3\u30c8', comments_powered: 'Giscus \u63d0\u4f9b \u2014 GitHub\u30a2\u30ab\u30a6\u30f3\u30c8\u3067\u30ed\u30b0\u30a4\u30f3\u3057\u3066\u30b3\u30e1\u30f3\u30c8' }
+};
+function applyLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    localStorage.setItem('kaelblog-lang', lang);
+}
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        applyLang(btn.getAttribute('data-lang'));
+    });
+});
+var saved = localStorage.getItem('kaelblog-lang') || 'zh';
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
+});
+if (saved !== 'zh') applyLang(saved);
+</script>
+"""
 
-def get_tag_info(html_content):
-    """Return list of (tag_class, tag_name) from article HTML."""
-    tag_map = [
-        ('tag-ai', 'AI', 'ai'),
-        ('tag-philosophy', 'Philosophy', 'philosophy'),
-        ('tag-workflow', 'WorkFlow', 'workflow'),
-        ('tag-read', 'Read', 'read'),
-    ]
-    result = []
-    for cls, name, css_cls in tag_map:
-        if cls in html_content:
-            result.append((css_cls, name))
-    return result if result else [('ai', 'AI')]
+GISCUS_HTML = """
+        <div id="comments">
+            <div class="container">
+                <div class="giscus-title" data-i18n="comments_title">评论</div>
+                <div class="giscus-powered" data-i18n="comments_powered">由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论</div>
+                <div class="giscus-container">
+                    <div class="giscus"></div>
+                </div>
+            </div>
+        </div>
 
+        <script src="https://giscus.app/client.js"
+            data-repo="Antisubmissivist/kael-blog"
+            data-repo-id="R_kgDOSTkxBw"
+            data-category="General"
+            data-category-id="DIC_kwDOSTkxB84C8Scj"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+        </script>
+"""
 
-def count_reading_time(text):
-    words = len(re.sub(r'<[^>]+>', '', text).split())
-    return words, max(1, round(words / 200))
+def extract_article_content(content):
+    """Find the article body content from the HTML file."""
+    ab_start = content.find('<div class="article-body">')
+    if ab_start < 0:
+        return None
+    search_from = ab_start + len('<div class="article-body">')
+    search_slice = content[search_from:]
+    first_div = search_slice.find('</div>')
+    if first_div < 0:
+        return None
+    article_text = content[search_from:search_from + first_div]
+    return article_text
 
-
-def extract_article_body(content):
-    """Extract the inner HTML of the article-body div."""
-    m = re.search(r'<div class="article-body">(.*?)</div>\s*<section', content, re.DOTALL)
-    if m:
-        return m.group(1)
-    m = re.search(r'<div class="article-body">(.*)', content, re.DOTALL)
-    if m:
-        end = m.group(1).find('</div>')
-        if end != -1:
-            return m.group(1)[:end]
-    m = re.search(r'<main>.*?<div class="container">\s*(.*?)\s*<section class="comments">', content, re.DOTALL)
-    if m:
-        return m.group(1)
-    return ''
-
-
-def process_article(filepath):
+def update_article(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # title
-    m = re.search(r'<title>(.*?)</title>', content)
-    title = m.group(1) if m else 'Article'
+    title_match = re.search(r'<title>([^<]+)</title>', content)
+    if not title_match:
+        return False
+    title = title_match.group(1)
+    title_clean = title.replace(' \u2014 Kael\'s Blog', '')
 
-    # h1
-    m = re.search(r'<h1>(.*?)</h1>', content)
-    h1 = m.group(1) if m else 'Article'
+    article_text = extract_article_content(content)
+    if article_text is None:
+        return False
 
-    # date
-    m = re.search(r'\b(2026-\d{2}-\d{2})\b', content)
-    date = m.group(1) if m else ''
+    date_match = re.search(r'(\d{4}-\d{2}-\d{2})', content)
+    date_str = date_match.group(1) if date_match else '2026-01-01'
 
-    # tags
-    tags = get_tag_info(content)
-    tags_html = ''
-    for css_cls, name in tags:
-        tags_html += '<span class="tag %s">%s</span>\n            ' % (css_cls, name)
+    tag_matches = re.findall(r'<span class="tag[^"]*">([^<]+)</span>', content)
+    tags_html = ''.join('<span class="tag">' + t.strip() + '</span>' for t in tag_matches[:4])
 
-    # article body
-    article_body = extract_article_body(content)
-    words, minutes = count_reading_time(article_body)
-
-    tag_section = tags_html
-    meta_line = ('<span class="meta-date">%s</span>\n            ' % date) + tag_section
-    if minutes > 0:
-        meta_line += '<span class="meta-date" style="margin-left:4px"> &middot; %d min read</span>' % minutes
-
-    new_html = (
-        '<!DOCTYPE html>\n'
-        '<html lang="zh-CN">\n'
-        '<head>\n'
-        '    <meta charset="UTF-8">\n'
-        '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-        '    <title>' + title + '</title>\n'
-        '    <link rel="icon" type="image/svg+xml" href="../favicon.svg">\n'
-        '    <link rel="preconnect" href="https://fonts.googleapis.com">\n'
-        '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-        '    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">\n'
-        + ARTICLE_CSS +
-        '</head>\n'
-        '<body>\n'
-        '<header>\n'
-        '    <div class="container">\n'
-        '        <a href="../index.html" class="back">\n'
-        '            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>\n'
-        '            Back to Kael\'s Blog\n'
-        '        </a>\n'
-        '        <h1>' + h1 + '</h1>\n'
-        '        <div class="meta">\n'
-        + meta_line +
-        '        </div>\n'
-        '    </div>\n'
-        '</header>\n'
-        '<main>\n'
-        '    <div class="container">\n'
-        '        <div class="article-body">\n'
-        + article_body +
-        '\n'
-        '        </div>\n'
-        '\n'
-        '        <section class="comments">\n'
-        '            <h3>Comments</h3>\n'
-        '            <div class="comment-placeholder">\n'
-        '                <p>Comments are closed on this blog.</p>\n'
-        '                <p>Reach out via <a href="https://t.me/Buddleja_impiorum" target="_blank">Telegram</a>.</p>\n'
-        '            </div>\n'
-        '        </section>\n'
-        '    </div>\n'
-        '</main>\n'
-        '<footer>\n'
-        '    <div class="container">\n'
-        '        <p>&copy; 2026 Kael\'s Blog &middot; Powered by OpenClaw &middot; Hosted on Cloudflare Pages</p>\n'
-        '    </div>\n'
-        '</footer>\n'
-        '</body>\n'
-        '</html>'
-    )
+    html = '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>' + title + ' \u2014 Kael\'s Blog</title>\n    <link rel="icon" type="image/svg+xml" href="../favicon.svg">\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">\n    <style>\n' + CSS_BLOCK + '\n    </style>\n</head>\n<body>\n\n<header>\n    <div class="container">\n        <a href="../index.html" class="back">\n            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>\n            <span data-i18n="back">返回文章列表</span>\n        </a>\n        <h1>' + title_clean + '</h1>\n        <div class="meta">\n            <span class="meta-date">' + date_str + '</span>\n            <div class="meta-tags">' + tags_html + '</div>\n            <div class="lang-switch" style="margin-left: auto;">\n                <button data-lang="zh" class="active">ZH</button>\n                <button data-lang="en">EN</button>\n                <button data-lang="ja">JA</button>\n            </div>\n        </div>\n    </div>\n</header>\n\n<main>\n    <div class="container">\n        <article>\n' + article_text + '\n        </article>\n    </div>\n</main>\n\n' + GISCUS_HTML + '\n' + I18N_JS + '\n</body>\n</html>'
 
     with open(filepath, 'w', encoding='utf-8') as f:
-        f.write(new_html)
-    print("  [OK] %s (%d chars | %d min read)" % (os.path.basename(filepath), words, minutes))
-
+        f.write(html)
+    return True
 
 def main():
-    print("[START] Batch updating article pages...")
-    files = sorted([
-        os.path.join(ARTICLES_DIR, f)
-        for f in os.listdir(ARTICLES_DIR)
-        if f.endswith('.html')
-    ])
-    for fp in files:
-        process_article(fp)
-    print("[DONE] Updated %d article pages" % len(files))
-
+    files = sorted([f for f in os.listdir(ARTICLES_DIR) if f.endswith('.html')])
+    updated = 0
+    for fname in files:
+        path = os.path.join(ARTICLES_DIR, fname)
+        try:
+            if update_article(path):
+                print('Updated:', fname)
+                updated += 1
+            else:
+                print('Skipped:', fname)
+        except Exception as e:
+            print('Error', fname + ':', e)
+    print('Done:', updated, '/', len(files))
 
 if __name__ == '__main__':
     main()
