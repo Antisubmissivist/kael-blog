@@ -1,0 +1,10 @@
+with open(r'C:\Users\Antist\.openclaw\workspace\cloudflare-website\kaelblog.com\index.html','r',encoding='utf-8') as f:
+    c = f.read()
+print('index.html size:', len(c), 'bytes')
+print('Has grain overlay:', 'grainShift' in c)
+print('Has Plus Jakarta Sans:', 'Plus+Jakarta+Sans' in c)
+print('Has staggered animation:', 'nth-child' in c)
+print('Has read-more SVG arrow:', 'M5 12h14' in c)
+print('Article count:', c.count('class="post '))
+print('Has hero badge:', 'hero-badge' in c)
+print('Has about tech pills:', 'about-tech' in c and '<span>' in c)
