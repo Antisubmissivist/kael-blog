@@ -189,9 +189,9 @@
             <span class="meta-date">2026-04-30</span>
             <div class="meta-tags"><span class="tag">AI</span></div>
             <div class="lang-switch">
-                <button data-lang="zh" onclick="(function(){var s=document.querySelector('.goog-te-combo');if(s){s.value='zh-CN';var e=new Event('change',{bubbles:true});s.dispatchEvent(e)}})()">ZH</button>
-                <button data-lang="en" onclick="(function(){var s=document.querySelector('.goog-te-combo');if(s){s.value='en';var e=new Event('change',{bubbles:true});s.dispatchEvent(e)}})()">EN</button>
-                <button data-lang="ja" onclick="(function(){var s=document.querySelector('.goog-te-combo');if(s){s.value='ja';var e=new Event('change',{bubbles:true});s.dispatchEvent(e)}})()">JA</button>
+                <button data-lang="zh" onclick="translatePage(\'zh\')">ZH</button>
+                <button data-lang="en" onclick="translatePage(\'en\')">EN</button>
+                <button data-lang="ja" onclick="translatePage(\'ja\')">JA</button>
             </div>
             <div id="google_translate_element"></div>
         </div>
@@ -280,23 +280,41 @@ function translatePage(lang) {
     var gtcFrame = document.querySelector('.goog-te-banner-frame');
     if (gtcFrame) { gtcFrame.style.display = 'none'; }
 
-    if (lang === 'zh') {
+    function doTranslate() {
+        if (lang === 'zh') {
+            if (typeof google !== 'undefined' && google.translate) {
+                var select = document.querySelector('.goog-te-combo');
+                if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+            }
+            applyLang(lang);
+            return;
+        }
+
+        var langMap = { en: 'en', ja: 'ja' };
+        var gLang = langMap[lang] || lang;
+
         if (typeof google !== 'undefined' && google.translate) {
-            var select = document.querySelector('.goog-te-combo');
-            if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+            var sel = document.querySelector('.goog-te-combo');
+            if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
         }
         applyLang(lang);
-        return;
     }
 
-    var langMap = { en: 'en', ja: 'ja' };
-    var gLang = langMap[lang] || lang;
-
-    if (typeof google !== 'undefined' && google.translate) {
-        var sel = document.querySelector('.goog-te-combo');
-        if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+    if (document.querySelector('.goog-te-combo')) {
+        doTranslate();
+    } else {
+        var tryCount = 0;
+        var wait = setInterval(function() {
+            tryCount++;
+            if (document.querySelector('.goog-te-combo')) {
+                clearInterval(wait);
+                doTranslate();
+            } else if (tryCount >= 20) {
+                clearInterval(wait);
+                applyLang(lang);
+            }
+        }, 100);
     }
-    applyLang(lang);
 }
 
 document.querySelectorAll('.lang-switch button').forEach(function(btn) {
