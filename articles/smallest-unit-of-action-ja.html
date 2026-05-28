@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>《思考的技术》笔记 - Kael's Blog</title>
+    <title>持続行動の最小単位は「毎日」ではない - Kael's Blog</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,10 +137,10 @@
             font-family: inherit;
             font-size: 12px;
             transition: all var(--transition);
-            text-decoration: none;
         }
         .lang-switch a:hover,
         .lang-switch a.active { border-color: var(--accent); color: var(--accent); }
+        #google_translate_element { display: none; }
                         #comments { padding: 64px 0; border-top: 1px solid var(--border); }
         .giscus-title {
             font-family: 'Playfair Display', Georgia, serif;
@@ -162,23 +162,34 @@
         }
 
     </style>
-    </head>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'zh-CN',
+                includedLanguages: 'en,ja,ko,es,fr,de,zh-CN,zh-TW',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        </script>
+        
+</head>
 <body>
 
 <header>
     <div class="container">
         <a href="../index.html" class="back">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            <span data-i18n="back">返回文章列表</span>
+            <span data-i18n="back">記事リストに戻る</span>
         </a>
-        <h1>《思考的技术》笔记</h1>
+        <h1>持続行動の最小単位は「毎日」ではない</h1>
         <div class="meta">
-            <span class="meta-date">2026-04-15</span>
-            <div class="meta-tags"><span class="tag">AI</span></div>
-                        <div class="lang-switch">
-                <a href="thinking-technology-notes.html" class="lang-btn active">ZH</a>
-                <a href="thinking-technology-notes-en.html" class="lang-btn">EN</a>
-                <a href="thinking-technology-notes-ja.html" class="lang-btn">JA</a>
+            <span class="meta-date">2026-04-05</span>
+            <div class="meta-tags"><span class="tag">ワークフロー</span></div>
+            <div class="lang-switch">
+                <a href="smallest-unit-of-action.html" class="lang-btn">ZH</a>
+                <a href="smallest-unit-of-action-en.html" class="lang-btn">EN</a>
+                <a href="smallest-unit-of-action-ja.html" class="lang-btn active">JA</a>
             </div>
                     </div>
     </div>
@@ -187,29 +198,24 @@
 <main>
     <div class="container">
         <article translate="yes">
-    <p>The core framework of this book: the root cause of Japanese business problems lies in the thinking habit of "executing without hypothesis verification."</p>
-<h3>Assumptions Are Not Conclusions</h3>
-<p>Ohmae Kenichi points out: most people confuse "hypothesis" and "conclusion." When they see a problem, they immediately generate an intuitive judgment, then spend all their energy collecting evidence that "supports" this judgment — rather than "verifying" it.</p>
+<p>人々が持続的な行動について話す時、いつも「毎日」を時間の単位に使う。 しかし私はこれか最小の単位ではないことを見つけた。</p>
+
+<p>「今日5キロ走らなければならない」と叫ぶ時、大きな曖昧なタスクに向かっている。 しかし「次の一歩は何？」を考えると、具体的なことでなければならない：今すぐにすべき最初のことは何か？靴を履く。それだけ——就是这么简单。</p>
+
 <blockquote>
-    Collecting evidence to support a conclusion you've already reached is called confirmation bias, not analysis.
+    行動の本質は意志力の競争ではなく、大きなタスクを十分に小さく切る能力だ。小さくして失敗不可能にし、意志力なしに始められるようにする。
 </blockquote>
 
-<h3>My Three Practices</h3>
-<ul>
-<li><strong>Hypothesize before output</strong>: Before outputting any analysis, write down "what is my hypothesis" in one sentence</li>
-<li><strong>Reverse listing</strong>: After writing each conclusion, force yourself to write "three arguments supporting the opposite conclusion"</li>
-<li><strong>Time delay</strong>: Don't output important judgments immediately; place them for 6 hours then review</li>
-</ul>
-
-  </article>
+<p><strong>持続行動の核心の秘密</strong>：続けること考えず、ただ少しだけやることを考える。失敗不可能なほど小さく、それから完了感が次のステップを推進させるようにする。</p>
+        </article>
     </div>
 </main>
 
 
         <div id="comments">
             <div class="container">
-                <div class="giscus-title" data-i18n="comments_title">评论</div>
-                <div class="giscus-powered" data-i18n="comments_powered">由Giscus 提供支持 使用 GitHub 账号登录后即可评/div>
+                <div class="giscus-title" data-i18n="comments_title">コメント</div>
+                <div class="giscus-powered" data-i18n="comments_powered">Giscus 提供 — GitHubアカウントでログインしてコメント</div>
                 <div class="giscus-container">
                     <div class="giscus"></div>
                 </div>
@@ -247,3 +253,62 @@ function applyLang(lang) {
     });
     localStorage.setItem('kaelblog-lang', lang);
 }
+
+function translatePage(lang) {
+    var gtcFrame = document.querySelector('.goog-te-banner-frame');
+    if (gtcFrame) { gtcFrame.style.display = 'none'; }
+
+    function doTranslate() {
+        if (lang === 'zh') {
+            if (typeof google !== 'undefined' && google.translate) {
+                var select = document.querySelector('.goog-te-combo');
+                if (select) { select.value = 'zh-CN'; select.dispatchEvent(new Event('change')); }
+            }
+            applyLang(lang);
+            return;
+        }
+
+        var langMap = { en: 'en', ja: 'ja' };
+        var gLang = langMap[lang] || lang;
+
+        if (typeof google !== 'undefined' && google.translate) {
+            var sel = document.querySelector('.goog-te-combo');
+            if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+        }
+        applyLang(lang);
+    }
+
+    if (document.querySelector('.goog-te-combo')) {
+        doTranslate();
+    } else {
+        var tryCount = 0;
+        var wait = setInterval(function() {
+            tryCount++;
+            if (document.querySelector('.goog-te-combo')) {
+                clearInterval(wait);
+                doTranslate();
+            } else if (tryCount >= 60) {
+                clearInterval(wait);
+                applyLang(lang);
+            }
+        }, 200);
+    }
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        translatePage(btn.getAttribute('data-lang'));
+    });
+});
+
+var saved = localStorage.getItem('kaelblog-lang') || 'zh';
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
+});
+if (saved !== 'zh') translatePage(saved);
+</script>
+
+</body>
+</html>
