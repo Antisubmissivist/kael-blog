@@ -1,5 +1,27 @@
 # blog-publisher 运行记录
 
+## 2026-06-06 02:10 JST — Run #6
+
+### 执行摘要
+- ✅ 新文章已创建：`上下文即身份`
+- ✅ `rebuild_index.py` 运行正常（3个索引全部更新）
+- ✅ git push → GitHub Actions 自动部署中
+
+### 文章信息
+- **标题**: 上下文即身份
+- **Slug**: `context-is-identity.html`
+- **日期**: 2026-06-06
+- **标签**: 哲学
+- **字数**: ~650字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（`kael-blog` 项目）
+- **Commit**: `a4dfa3a` — "feat: add article - 上下文即身份 (2026-06-06)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 12篇（纯静态 HTML）
+
+---
+
 ## 2026-05-31 23:15 JST — Run #5
 
 ### 执行摘要
