@@ -1,5 +1,36 @@
 # blog-publisher 运行记录
 
+## 2026-05-31 23:15 JST — Run #5
+
+### 执行摘要
+- ✅ `rebuild_index.py` 运行正常
+- ✅ 索引已是最新（无新文章）
+- ✅ 无变更需推送
+
+### 技术细节
+- **站点**: https://kaelblog.com ✅ ACTIVE
+- **部署**: GitHub Actions (master push → Cloudflare Pages)
+- **上次提交**: `39d0c80` — "chore: rebuild index (cron run 2026-05-29 02:10 JST)"
+- **文章数量**: 21篇（纯静态 HTML）
+- **运行间隔**: 每天 02:10 JST（cron）
+
+---
+
+## 2026-05-29 02:10 JST — Run #4
+
+### 执行摘要
+- ✅ `rebuild_index.py` 运行正常
+- ✅ 索引已更新（GitHub Actions 自动部署中）
+- ℹ️ 无新文章，站点稳定运行
+
+### 技术细节
+- **重建索引**: `rebuild_index.py`（动态扫描 articles/）
+- **部署**: GitHub Actions → CLOUDFLARE_PAGES（自动）
+- **Latest Commit**: `39d0c80` — "chore: rebuild index (cron run 2026-05-29 02:10 JST)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
+
+---
+
 ## 2026-05-28 02:10 JST — Run #3
 
 ### 执行摘要
