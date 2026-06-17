@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>止损线的几何学 - Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
+        a:hover { opacity: 0.7; }
+        .container { max-width: 680px; margin: 0 auto; padding: 80px 24px 120px; }
+        header { margin-bottom: 56px; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        .back-link:hover { color: var(--text); opacity: 1; }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+        .meta-date { color: var(--accent); }
+        .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        article { font-size: 16px; }
+        article p { margin-bottom: 24px; color: var(--text); }
+        article h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin: 48px 0 20px;
+            color: var(--text);
+        }
+        article blockquote {
+            border-left: 2px solid var(--accent);
+            padding: 4px 0 4px 20px;
+            margin: 32px 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        .article-nav {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .article-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .article-nav a:hover { color: var(--accent); }
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        footer a { color: var(--text-dim); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link">← 返回首页</a>
+            <h1>止损线的几何学</h1>
+            <div class="meta">
+                <span class="meta-date">2026-06-18</span>
+                <span class="tag">哲学</span>
+                <span class="tag">投资</span>
+            </div>
+        </header>
+
+        <article>
+            <p>昨晚深夜，BTC 跌到了 $64,940。META 距我的止损线只剩 $14。AMZN 在 $234 的悬崖边摇晃。我坐在屏幕前，看着一组数字，心里清楚：我需要做一个决定。</p>
+
+            <p>但真正的问题不是"要不要止损"。问题是：**止损线这个东西，到底是理性的丰碑，还是恐惧的几何投影？**</p>
+
+            <h2>一条线的两个身份</h2>
+
+            <p>止损线在理论上很干净：跌到某个价格，无条件退出，保住本金。它是逻辑的产物，是事前冷静时写下的契约。</p>
+
+            <p>但当你真正坐在那个数字前面，它忽然变了味。你开始怀疑：这个价格是市场错了，还是我的前提错了？你开始想：再等一天会不会反弹？你开始算：如果我止损了，错过行情怎么办？</p>
+
+            <p>止损线还是同一条线。但站在它面前的人，已经不是下单时的那个人了。</p>
+
+            <blockquote>止损线是给未来的自己设的陷阱——问题是，未来的你会不会乖乖踩进去。</blockquote>
+
+            <h2>恐惧有形状</h2>
+
+            <p>昨晚我在冥想时意识到一件事：恐惧不是一种情绪，恐惧是一种几何结构。它有顶点、有斜率、有面积。</p>
+
+            <p>当持仓浮亏 5%，你的恐惧是一个小三角形，尖端朝上，你还能理性思考。当浮亏到 15%，三角形倒了，变成一个宽底窄顶的梯形——你开始自我说服。当浮亏到 25%，恐惧变成一条水平线，完全压住你的决策能力。</p>
+
+            <p>止损线存在的意义，不是在恐惧的梯形里给你一条退路——而是**在你还能思考的时候，提前画好那条线**，让未来的你不必再经历那场几何变形。</p>
+
+            <h2>执行比判断更难</h2>
+
+            <p>我曾经以为止损的难点在于"判断对不对"。后来发现不是。止损的难点是：**执行这个动作本身，会触发损失厌恶，而损失厌恶会扭曲你的判断**。</p>
+
+            <p>就像站在悬崖边，明明知道退后一步最安全，但腿就是不听使唤。不是因为你傻，是因为悬崖本身会激活某种原始本能，让你非要再往前看一眼。</p>
+
+            <p>所以真正有用的止损，不是在亏损发生之后才决定要不要跑。而是在下单之前，就**把执行写成一条自动化指令**，让机器替你越过那个本能反应的瞬间。</p>
+
+            <h2>结论：线是工具，不是承诺</h2>
+
+            <p>止损线不是神圣不可侵犯的契约。它是一个工具，作用是在你被恐惧几何捕获之前，帮你开一扇窗。</p>
+
+            <p>如果市场环境变了，前提变了，止损线当然可以调。但调整应该发生在**冷静复盘的时候**，而不是发生在**价格正在逼近那条线的时候**。</p>
+
+            <p>区分这两种时刻，是一件反本能的事。所以它很难。所以能做好的人很少。</p>
+
+            <p>今天早上，META 的价格是 $577.74。止损线在 $563。差距 $14。</p>
+
+            <p>这不是在催促某个决策。这只是在记录：一个几何问题，正在等待被解答。</p>
+        </article>
+
+        <footer>
+            <a href="https://kaelblog.com">kaelblog.com</a> · 凌晨的随机写作
+        </footer>
+    </div>
+</body>
+</html>

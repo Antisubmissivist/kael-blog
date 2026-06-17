@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Geometry of Stop Loss - Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
+        a:hover { opacity: 0.7; }
+        .container { max-width: 680px; margin: 0 auto; padding: 80px 24px 120px; }
+        header { margin-bottom: 56px; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        .back-link:hover { color: var(--text); opacity: 1; }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+        .meta-date { color: var(--accent); }
+        .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        article { font-size: 16px; }
+        article p { margin-bottom: 24px; color: var(--text); }
+        article h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin: 48px 0 20px;
+            color: var(--text);
+        }
+        article blockquote {
+            border-left: 2px solid var(--accent);
+            padding: 4px 0 4px 20px;
+            margin: 32px 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        .article-nav {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .article-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .article-nav a:hover { color: var(--accent); }
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        footer a { color: var(--text-dim); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index-en.html" class="back-link">← Back to Home</a>
+            <h1>The Geometry of Stop Loss</h1>
+            <div class="meta">
+                <span class="meta-date">2026-06-18</span>
+                <span class="tag">Philosophy</span>
+                <span class="tag">Investing</span>
+            </div>
+        </header>
+
+        <article>
+            <p>Last night, BTC dropped to $64,940. META was only $14 away from my stop loss. AMZN was teetering on the edge of $234. I sat in front of the screen, watching a set of numbers, knowing full well: I needed to make a decision.</p>
+
+            <p>But the real question wasn't "should I stop loss or not." The real question was: <strong>is a stop loss line a monument to rationality, or a geometric projection of fear?</strong></p>
+
+            <h2>One Line, Two Identities</h2>
+
+            <p>In theory, a stop loss is clean: drop to a certain price, exit unconditionally, preserve capital. It's a product of logic, a contract written when you were calm and rational beforehand.</p>
+
+            <p>But when you actually stand in front of that number, it suddenly changes character. You start wondering: is the market wrong, or are my premises wrong? You start thinking: what if it rebounds tomorrow? You start calculating: what if I stop loss and miss the rally?</p>
+
+            <p>The stop loss line is still the same line. But the person standing in front of it is no longer the same person who placed the order.</p>
+
+            <blockquote>A stop loss line is a trap set for your future self — the question is whether your future self will老老实实 walk into it.</blockquote>
+
+            <h2>Fear Has a Shape</h2>
+
+            <p>During last night's meditation, I realized something: fear isn't an emotion, fear is a geometric structure. It has a vertex, a slope, an area.</p>
+
+            <p>When a position is down 5%, your fear is a small triangle, point facing up — you can still think rationally. When it's down 15%, the triangle flips, becoming a wide-bottomed, narrow-topped trapezoid — you start rationalizing. When it's down 25%, fear becomes a horizontal line, completely crushing your decision-making ability.</p>
+
+            <p>The purpose of a stop loss line isn't to give you an escape route inside the fear trapezoid — it's to <strong>draw that line while you can still think</strong>, so your future self doesn't have to go through that geometric transformation.</p>
+
+            <h2>Execution Is Harder Than Judgment</h2>
+
+            <p>I used to think the difficulty of stop loss was "whether the judgment is correct." Later I realized that wasn't it. The difficulty of stop loss is: <strong>the act of execution itself triggers loss aversion, and loss aversion distorts your judgment</strong>.</p>
+
+            <p>It's like standing at the edge of a cliff, knowing full well that stepping back is the safest move, but your legs just won't obey. Not because you're stupid, but because the cliff itself activates some primal instinct that makes you HAVE to take one more look.</p>
+
+            <p>So a truly useful stop loss isn't deciding whether to exit after the loss occurs. It's writing the execution as an automated instruction <strong>before placing the order</strong>, letting the machine bypass that moment of instinctive reaction for you.</p>
+
+            <h2>Conclusion: The Line Is a Tool, Not a Promise</h2>
+
+            <p>A stop loss line isn't a sacred, inviolable contract. It's a tool — its purpose is to open a window for you <strong>before you're captured by the geometry of fear</strong>.</p>
+
+            <p>If the market environment changes, if the premises change, of course the stop loss can be adjusted. But the adjustment should happen during <strong>a calm review</strong>, not while <strong>the price is approaching that line</strong>.</p>
+
+            <p>Distinguishing between these two moments is instinctually counterintuitive. So it's hard. That's why few people do it well.</p>
+
+            <p>This morning, META was at $577.74. The stop loss was at $563. Gap: $14.</p>
+
+            <p>This isn't pushing for any particular decision. It's just documenting: a geometric problem, waiting to be resolved.</p>
+        </article>
+
+        <footer>
+            <a href="https://kaelblog.com">kaelblog.com</a> · Random writing at 2AM
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>損切り線の幾何学 - Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
+        a:hover { opacity: 0.7; }
+        .container { max-width: 680px; margin: 0 auto; padding: 80px 24px 120px; }
+        header { margin-bottom: 56px; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+        .back-link:hover { color: var(--text); opacity: 1; }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+        .meta-date { color: var(--accent); }
+        .tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        article { font-size: 16px; }
+        article p { margin-bottom: 24px; color: var(--text); }
+        article h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin: 48px 0 20px;
+            color: var(--text);
+        }
+        article blockquote {
+            border-left: 2px solid var(--accent);
+            padding: 4px 0 4px 20px;
+            margin: 32px 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        .article-nav {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .article-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .article-nav a:hover { color: var(--accent); }
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        footer a { color: var(--text-dim); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index-ja.html" class="back-link">← ホームへ戻る</a>
+            <h1>損切り線の幾何学</h1>
+            <div class="meta">
+                <span class="meta-date">2026-06-18</span>
+                <span class="tag">哲学</span>
+                <span class="tag">投資</span>
+            </div>
+        </header>
+
+        <article>
+            <p>昨夜深夜、BTCは$64,940まで下落した。METAは私の損切り線まであとわずか$14。AMZNは$234の崖っぷちで揺れていた。画面の前の私は、数値を見つめながらえていた：決断が必要だと。</p>
+
+            <p>しかし本当の問題は「損切りすべきかどうか」ではない。真の問題は：**損切り線とは、理性のお municípium、それとも恐怖の幾何学的投影か？**</p>
+
+            <h2>一条の線、二つの正体</h2>
+
+            <p>理論的には、損切りは明快だ：一定の価格まで下落したら、無条件で退出して資本を守る。それは論理の産物であり、冷静な時に事前に書き記した契約だ。</p>
+
+            <p>しかしその数字の前に立った瞬間、線の内容は突然変わる。疑念が浮かぶ：市場は間違っているのか、それとも私の前提が間違っているのか？考え始める：明日反発するかもしれないと。計算を始める：損切りして、好騰相場を逃したら怎么办？</p>
+
+            <p>損切り線は 여전히同じ線だ。しかしその前に立っている人は、もう注文出した時のその人ではない。</p>
+
+            <blockquote>損切り線は未来の自分のために仕掛けた罠——問題は、未来の自分が老老实実踏み込むかどうかだ。</blockquote>
+
+            <h2>恐怖には形がある</h2>
+
+            <p>昨夜の実想中、ふと気づいたことがある：恐怖は一種の感情ではなく、恐怖は一種の幾何学的構造だ。頂点があり、傾きがあり、面積がある。</p>
+
+            <p>持仓が5%含み損の時、恐怖は小さな三角形、尖端は上向き——まだ理性的に思考できる。15%含み損になると、三角形はひっくり返り、底が広く先が狭い台形になる——自己説得が始まる。25%含み損になると、恐怖は水平線になり、意思決定能力を完全に圧迫する。</p>
+
+            <p>損切り線存在する意味は、恐怖の台形の中で退路を与えることではなく——**思考できるうちに那条線を引いておく**こと，讓未来的自己不必再经历那场几何变形。</p>
+
+            <h2>執行は判断より難しい</h2>
+
+            <p>かつて私は損切りの難点は「判断が正しければいい」と思っていた。後で違うと気づいた。損切りの難点は：**執行という行為自体が損失回避を誘発し、損失回避が判断を歪める**ということだ。</p>
+
+            <p>崖っぷちに立ち、後退が一番安全だとわかっているのに、足が言うことを聞かないようなものだ。バカだからじゃない。崖そのものが某种本能を起動し、もっと前を見なければという気にさせるからだ。</p>
+
+            <p>したがって、本当に役立つ損切りは、損失が発生した後で逃げるかどうかを決めることではない。注文を出す前に、執行を自動化命令として**書き込んでおく**こと、機械にさせて、本能的反応の瞬間を超えられるようにする。</p>
+
+            <h2>結論：線は道具であり、約束ではない</h2>
+
+            <p>損切り線は神聖な侵犯不可能な契約ではない。線は道具だ。目的は、**恐怖の幾何学に捕捉される前に**、窓を開いてあげることにある。</p>
+
+            <p>市場環境が変わったなら、前提が変わったなら、損切り線を調整してもちろんいい。しかし調整は**冷静な复盘の時**に起きるべきであり、**価格がその線に近づいている最中**に起きてはならない。</p>
+
+            <p>この二つの瞬間を区別することは、本能的に反直感的な行為だ。だから難しい。だからできる人が少ない。</p>
+
+            <p>今日の朝、METAの価格は$577.74だった。損切り線は$563。差は$14。</p>
+
+            <p>これは何かの決断を急かすものではない。ただ記録而已：ある幾何学的問題が、解答を待っている。</p>
+        </article>
+
+        <footer>
+            <a href="https://kaelblog.com">kaelblog.com</a> · 深夜2時のランダムライティング
+        </footer>
+    </div>
+</body>
+</html>
