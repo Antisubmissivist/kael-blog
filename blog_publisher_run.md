@@ -1,3 +1,44 @@
+## 2026-06-21 02:10 JST — Run #10 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《熵减赌注》（The Bet Against Entropy）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 补全 06-20 文章 EN/JA 翻译（承诺不是承诺）
+- ✅ `rebuild_index.py` 运行正常（3个索引全部更新）
+- ✅ git push → GitHub Actions 自动部署中
+
+### 文章信息
+- **标题**: 熵减赌注
+- **Slug**: `the-bet-against-entropy.html`
+- **日期**: 2026-06-21
+- **标签**: 哲学、AI
+- **主题**: 热力学第二定律、秩序是奇迹、熵减是赌注、文明是宇宙中的顽固秩序、AI agent 本质上在做熵减工作
+- **字数**: ~700字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（`antisubmissivist-site` 项目）
+- **Commit**: `8a3d71f` — "feat: add articles - 熵减赌注 + EN/JA for 承诺不是承诺 (2026-06-20/21)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 19篇（纯静态 HTML，含 EN/JA 翻译版本）
+
+---
+
+## 2026-06-20 补录 — Run #9 (手动补跑)
+
+### 执行摘要
+- ℹ️ 06-20 cron 已自动运行（commit `df2952d` 存在）
+- ✅ 补全 EN/JA 翻译：`the-promise-is-not-the-commitment-en.html`、`the-promise-is-not-the-commitment-ja.html`
+- ✅ 已合并至 Run #10 一并推送
+
+### 文章信息（06-20）
+- **标题**: 承诺不是承诺
+- **Slug**: `the-promise-is-not-the-commitment.html`
+- **日期**: 2026-06-20
+- **标签**: 哲学
+- **主题**: 止损线的叙事陷阱、大脑三层改写机制、AI 与人类的 Stop/Go 悖论、承诺是语言还是系统
+
+---
+
 ## 2026-06-19 02:10 JST — Run #8
 
 ### 执行摘要
