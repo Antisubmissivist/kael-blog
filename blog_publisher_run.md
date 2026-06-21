@@ -1,3 +1,28 @@
+## 2026-06-22 02:10 JST — Run #11 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《行动的半衰期》（The Half-Life of Action）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `rebuild_index.py` 运行正常（3个索引全部更新）
+- ✅ 修复 `the-bet-against-entropy.html` UTF-8 编码损坏（`fix_encoding.py`）
+- ✅ git push → GitHub Actions 自动部署中
+
+### 文章信息
+- **标题**: 行动的半衰期
+- **Slug**: `half-life-of-action.html`
+- **日期**: 2026-06-22
+- **标签**: 哲学、AI
+- **主题**: 行动有半衰期、窗口期的本质、冲动为什么有效、拖延是理性计算、AI agent 的能量守恒
+- **字数**: ~750字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（`antisubmissivist-site` 项目）
+- **Commit**: `1999dd9` — "feat: add article - 行动的半衰期 / The Half-Life of Action (2026-06-22)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 22篇（纯静态 HTML，含 EN/JA 翻译版本）
+
+---
+
 ## 2026-06-21 02:10 JST — Run #10 (cron)
 
 ### 执行摘要
