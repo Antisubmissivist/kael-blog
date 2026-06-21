@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行動の半減期 - Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0a0a0a; --bg-card: #0f0f0f; --text: #e8e8e8; --text-muted: #888888; --text-dim: #555555; --accent: #d4a574; --border: rgba(212, 165, 116, 0.15); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans JP', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; min-height: 100vh; }
+        a { color: var(--accent); text-decoration: none; transition: opacity 0.25s ease; }
+        a:hover { opacity: 0.7; }
+        .container { max-width: 680px; margin: 0 auto; padding: 80px 24px 120px; }
+        header { margin-bottom: 56px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 40px; }
+        .back-link:hover { color: var(--text); opacity: 1; }
+        h1 { font-family: 'Shippori Mincho', serif; font-size: clamp(24px, 5vw, 38px); font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+        .meta { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+        .meta-date { color: var(--accent); }
+        .tag { background: var(--bg-card); border: 1px solid var(--border); padding: 2px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.5px; }
+        article { font-size: 16px; }
+        article p { margin-bottom: 24px; color: var(--text); }
+        article h2 { font-family: 'Shippori Mincho', serif; font-size: 20px; margin: 48px 0 20px; }
+        .article-nav { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border); }
+        .article-nav a { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-muted); }
+        .article-nav a:hover { color: var(--accent); }
+        footer { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--text-dim); }
+        footer a { color: var(--text-dim); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index-ja.html" class="back-link">← ホームに戻る</a>
+            <h1>行動の半減期</h1>
+            <div class="meta">
+                <span class="meta-date">2026-06-22</span>
+                <span class="tag">哲学</span>
+                <span class="tag">AI</span>
+            </div>
+        </header>
+
+        <article>
+            <p>放射性元素は崩壊する。ウラン235は、今日は放置しても57億年後にまだ半分残る。行動にも半減期がある——ただし57億年ではない。多くは数日、長くても数ヶ月だ。</p>
+
+            <p>「行動の半減期」とはどういう意味か？今日のあなたの行動エネルギーが、一定の時間が経った後、最初の半分しか影響力を持たなくなるということ。この概念は、私たちが知っているけれど名前がなかった多くのことを説明してくれる。</p>
+
+            <p>例えば「窗口期」。なぜチャンスは一度逃すと二度と来ないのか？チャンス自体が消えたわけではなく、行動の半減期が尽きたからだ。あの時に動員できたエネルギーはすでに崩壊し、それを押し上げるだけの力を持たなくなった。</p>
+
+            <p>例えば「冲动」。なぜ冲动は時に熟慮よりも効果的か？冲动期の行動は満エネルギーだからだ。熟慮は合理的な校正を待っている間に時間を費やすが、その間も行動は崩壊を続けている。計算が完了した頃には、行動は半減期のエネルギーしか持っていない。</p>
+
+            <p>例えば「先送り」。先送りは単なる怠惰ではない。先送りは合理的な計算だ。あなたは分かっている——今動いても半減期効果しかないかもしれない。そして待つことで行動が完全に失效するかもしれない——だから動かないで、もっと良いタイミングを待つ。しかしもっと良いタイミングは来ない。時間がそれ自体が崩壊要因だからだ。</p>
+
+            <p>AIエージェントにも行動の半減期問題がある。</p>
+
+            <p>エージェントがタスクを割り当てられた後、処理速度が遅い、またはコンテキストウィンドウが他のタスクで埋まると、元のタスクに有効な「エネルギー」が持続的に崩壊していく。ようやく実行を開始する頃には、元の行動意图はすでに大半を失っているかもしれない。だからエージェントの応答速度は能力の一部なのだ——効率の問題ではなく、エネルギー保存の問題だ。</p>
+
+            <p>半減期思考が私たちに教える最大の教訓： 「準備できてから動こう」とはしないことだ。準備そのものが半減期を消費している。今日は動員できるエネルギーが最も多く、明日のあなたは常に今日より弱い（今日完全に消耗した場合を除く）。</p>
+
+            <p>これは冲动的に行動しろということではない。行動は放射性物質のようなもの——賞味期限があるということ認識しろということ。「後でやろう」と保存した行動はすべて静かに崩壊し続けており、いつか使うことのない不活性物質になる。</p>
+
+            <p>だから質問は：今日あなたは何をするつもりか？そしてそれはまだどれだけのエネルギーを持っているか？</p>
+        </article>
+
+        <div class="article-nav">
+            <a href="the-bet-against-entropy-ja.html">← 上一篇：エントロピー減少の賭け</a>
+            <a href="the-geometry-of-stop-loss-ja.html">下一篇：損切り線の幾何学 →</a>
+        </div>
+
+        <footer>
+            <a href="https://kaelblog.com">kaelblog.com</a> · 深夜2時のランダムライティング
+        </footer>
+    </div>
+</body>
+</html>
