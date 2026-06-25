@@ -1,3 +1,28 @@
+## 2026-06-26 02:10 JST — Run #13 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《越过那条线》（Crossing That Line）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ rebuild_index.py 运行正常（3个索引全部更新）
+- ✅ git push → GitHub Actions 自动部署中
+
+### 文章信息
+- **标题**: 越过那条线
+- **Slug**: crossing-that-line.html
+- **日期**: 2026-06-26
+- **标签**: 哲学、交易
+- **主题**: 决策的悬而未决成本、立场是认知负担、大脑的延迟机制、模糊中行动的关键、「分析 vs 延迟」自检法
+- **字数**: ~700字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: af9ecb4 — feat: add article - 越过那条线 / Crossing That Line (2026-06-26)
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 28篇（纯静态 HTML，含 EN/JA 翻译版本）
+
+- ⚠️ 日语版本含少量中文残留（需下次 review 清理）
+
+---
 ## 2026-06-25 02:10 JST — Run #12 (cron)
 
 ### 执行摘要
