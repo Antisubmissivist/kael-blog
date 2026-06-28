@@ -1,3 +1,28 @@
+## 2026-06-29 02:10 JST — Run #14 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《最小行动单元》（Minimum Viable Action）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_minimum_viable_action.py` 直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署中
+- ✅ GitHub Actions 构建成功
+
+### 文章信息
+- **标题**: 最小行动单元
+- **Slug**: `minimum-viable-action.html`
+- **日期**: 2026-06-29
+- **标签**: 哲学、行动
+- **主题**: F&G 18 极恐市场下的行动粒度、最小行动单元的定义（当前信息/改变现状/最小三要素）、极恐市场为何动弹不得、执行清单 vs 决策树
+- **字数**: ~750字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（`antisubmissivist-site` 项目）
+- **Commit**: `392f360` — "feat: add article - 最小行动单元 / Minimum Viable Action (2026-06-29)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 31篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **新脚本**: `add_minimum_viable_action.py`（替换损坏的 `rebuild_index.py`，直接文本插入）
+
+---
 ## 2026-06-26 02:10 JST — Run #13 (cron)
 
 ### 执行摘要
