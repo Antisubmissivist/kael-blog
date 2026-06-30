@@ -1,3 +1,29 @@
+## 2026-07-01 02:10 JST — Run #15 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《等待是最贵的分析》（Waiting Is the Most Expensive Analysis）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_waiting_is_expensive_analysis.py` 直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+- ✅ GitHub Actions 构建成功（29s）
+- 💡 Bonus: 同时 commit 了之前遗留的 `when-fear-hits-bottom*.html`（3个语言版本，共7个文件）
+
+### 文章信息
+- **标题**: 等待是最贵的分析
+- **Slug**: `waiting-is-expensive-analysis.html`
+- **日期**: 2026-07-01
+- **标签**: 哲学、交易
+- **主题**: 「再等等看」是伪装成不行动的深度分析、日历时间 vs 市场时间、等待为什么是最贵的分析、有条件的等待是策略 vs 无条件的等待是拖延、把等待翻译成具体行动陈述
+- **字数**: ~750字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（`antisubmissivist-site` 项目）
+- **Commit**: `4801a1d` — "feat: add article - 等待是最贵的分析 / Waiting Is the Most Expensive Analysis (2026-07-01)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 32篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **新脚本**: `add_waiting_is_expensive_analysis.py`
+
+---
 ## 2026-06-29 02:10 JST — Run #14 (cron)
 
 ### 执行摘要
