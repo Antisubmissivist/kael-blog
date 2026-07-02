@@ -1,3 +1,26 @@
+## 2026-07-03 02:10 JST — Run #16 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《认知摩擦》（Cognitive Friction）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_cognitive_friction.py` 直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+
+### 文章信息
+- **标题**: 认知摩擦
+- **Slug**: `cognitive-friction.html`
+- **日期**: 2026-07-03
+- **标签**: 哲学、行动
+- **主题**: 认知摩擦的三种类型（启动摩擦/切换摩擦/承诺摩擦）、摩擦的杠杆效应、环境设计解决外部摩擦、习惯解决内部摩擦、不要对抗摩擦要让摩擦站在你这边
+- **字数**: ~700字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（`antisubmissivist-site` 项目）
+- **Commit**: `ce104b5` — "feat: add article - 认知摩擦 / Cognitive Friction (2026-07-03)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 35篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **新脚本**: `add_cognitive_friction.py`
+
 ## 2026-07-01 02:10 JST — Run #15 (cron)
 
 ### 执行摘要
@@ -13,7 +36,7 @@
 - **Slug**: `waiting-is-expensive-analysis.html`
 - **日期**: 2026-07-01
 - **标签**: 哲学、交易
-- **主题**: 「再等等看」是伪装成不行动的深度分析、日历时间 vs 市场时间、等待为什么是最贵的分析、有条件的等待是策略 vs 无条件的等待是拖延、把等待翻译成具体行动陈述
+- **主题**: 「再等等看」是市场上最贵的五个字。不是因为它错了，而是因为它是一种伪装成不行动的深度分析。带着条件的等待是策略，没有条件的等待是拖延。
 - **字数**: ~750字
 
 ### 技术细节
