@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognitive Friction — Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--text); }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 52px;
+        }
+        .back {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color var(--transition);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .back:hover { color: var(--accent); }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        .meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .meta-date { font-size: 13px; color: var(--text-dim); font-weight: 400; }
+        .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: var(--radius);
+            font-weight: 400;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .tag:hover { border-color: var(--border-hover); color: var(--accent); }
+        article { font-size: 16px; color: var(--text-muted); line-height: 1.85; padding-bottom: 80px; }
+        article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin: 48px 0 16px; line-height: 1.4;
+        }
+        article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 18px; font-weight: 500;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        article p { margin-bottom: 20px; }
+        article strong { color: var(--text); font-weight: 600; }
+        article blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 28px 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            color: var(--text-muted);
+        }
+        article ul, article ol { padding-left: 24px; margin-bottom: 20px; }
+        article li { margin-bottom: 8px; }
+        article code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: var(--bg-card);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+        article pre {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        article pre code { background: none; padding: 0; color: var(--text); }
+        article hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+        .lang-switch { display: flex; gap: 4px; font-size: 12px; }
+        .lang-switch button {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all var(--transition);
+        }
+        .lang-switch button:hover,
+        .lang-switch button.active { border-color: var(--accent); color: var(--accent); }
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
+        #comments { padding: 64px 0; border-top: 1px solid var(--border); }
+        .giscus-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .giscus-powered { font-size: 13px; color: var(--text-dim); margin-bottom: 28px; }
+        .giscus-container {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            background: var(--bg-card);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 26px; }
+            article { font-size: 15px; }
+            article h2 { font-size: 19px; }
+        }
+    </style>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'zh-CN',
+            includedLanguages: 'en,ja,ko,es,fr,de,zh-CN,zh-TW',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../index-en.html" class="back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span data-i18n="back">Back to posts</span>
+        </a>
+        <h1>Cognitive Friction</h1>
+        <div class="meta">
+            <span class="meta-date">2026-07-03</span>
+            <div class="meta-tags">
+                <span class="tag">Philosophy</span>
+                <span class="tag">Action</span>
+            </div>
+            <div class="lang-switch">
+                <button data-lang="zh">ZH</button>
+                <button data-lang="en" class="active">EN</button>
+                <button data-lang="ja">JA</button>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <article>
+<p>You already know what you need to do. The problem is, you're not doing it. The gap between knowing and doing isn't an information gap — it's <strong>cognitive friction</strong>.</p>
+
+<h2>Where Friction Comes From</h2>
+
+<p>In the physical world, friction arises from two surfaces interlocking. Cognitive friction works the same way — your brain knows it should act, but another part of your brain is simultaneously generating resistance. Both parts are you.</p>
+
+<p>Here's a concrete example: you know you should sleep now because something important is waiting tomorrow. But you open one video, then another, then another. Both "yous" are present — one knows to stop, the other is scrolling. Both personas are active, but only one is shouting.</p>
+
+<blockquote>Cognitive friction isn't laziness. Laziness is the result, not the cause. Friction is the specific resistance that keeps you from acting even when you know better.</blockquote>
+
+<h2>Types of Friction</h2>
+
+<p>The first type is <strong>initiation friction</strong>. The first step toward any action requires extra energy. After that first move, the coefficient of friction drops sharply. This is why "do it for five minutes first" works in theory — it targets initiation friction, not sustained friction.</p>
+
+<p>The second type is <strong>switching friction</strong>. You're doing A, but B suddenly becomes more urgent. Your brain needs cognitive resources to reload context when switching between A and B. That reloading process is the cost of switching friction. You might feel like you "just switched for a second," but your efficiency drops to zero in that moment.</p>
+
+<p>The third type is <strong>commitment friction</strong>. Once an action is taken, it can't be taken back. Before acting, your brain instinctively simulates the path ahead — if any negative branch appears in that simulation, commitment friction grows. This is why "analysis paralysis" is more common in complex decisions than any other problem.</p>
+
+<h2>Using Friction as Leverage</h2>
+
+<p>Interestingly, friction can be weaponized. Physical friction becomes your friend when you need to brake — brakes use friction to control speed. Cognitive friction works the same way.</p>
+
+<p>Putting your phone in another room increases initiation friction — you need extra physical effort to pick it up. Setting a complex password to log into a website also adds friction, just in the opposite direction — it's preventing you from doing something you shouldn't.</p>
+
+<p>Good system design doesn't reduce all friction. It <strong>reduces friction in the right direction and increases friction in the wrong direction</strong>. A genuinely good habit-building system should make good habits nearly frictionless to start and make bad habits prohibitively difficult to initiate.</p>
+
+<h2>The Wrong Way to Eliminate Friction</h2>
+
+<p>Most people try to overcome cognitive friction with willpower. This is like using brute force to eliminate physical friction — you might succeed once, but you need to call on that brute force every single time. Willpower is a consumable, not a sustainable solution.</p>
+
+<p>Only two approaches actually work: first, <strong>change the environment</strong> so the friction disappears on its own; second, <strong>turn the action into a reflex</strong>, bypassing the decision circuit that needs friction. Environmental design handles external friction. Habit formation handles internal friction. Both together minimize cognitive friction.</p>
+
+<blockquote>Don't fight friction. Design a system where friction works in your favor.</blockquote>
+
+<p>Knowing but not doing isn't fundamentally a cognition problem — it's a systems problem. Your cognition isn't wrong. Your environment design needs rewriting.</p>
+        </article>
+    </div>
+</main>
+
+<div id="comments">
+    <div class="container">
+        <div class="giscus-title" data-i18n="comments_title">Comments</div>
+        <div class="giscus-powered" data-i18n="comments_powered">Powered by Giscus — Sign in with GitHub to comment</div>
+        <div class="giscus-container">
+            <div class="giscus"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://giscus.app/client.js"
+    data-repo="Antisubmissivist/kael-blog"
+    data-repo-id="R_kgDOSTkxBw"
+    data-category="General"
+    data-category-id="DIC_kwDOSTkxB84C8Scj"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<script>
+var i18n = {
+    zh: { back: '返回文章列表', comments_title: '评论', comments_powered: '由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论' },
+    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus — Sign in with GitHub to comment' },
+    ja: { back: '記事リストに戻る', comments_title: 'コメント', comments_powered: 'Giscus 提供 — GitHubアカウントでログインしてコメント' }
+};
+
+function applyLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    localStorage.setItem('kaelblog-lang', lang);
+}
+
+function translatePage(lang) {
+    var gtcFrame = document.querySelector('.goog-te-banner-frame');
+    if (gtcFrame) { gtcFrame.style.display = 'none'; }
+
+    if (lang === 'zh') {
+        if (typeof google !== 'undefined' && google.translate) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+        }
+        applyLang(lang);
+        return;
+    }
+
+    var langMap = { en: 'en', ja: 'ja' };
+    var gLang = langMap[lang] || lang;
+
+    if (typeof google !== 'undefined' && google.translate) {
+        var sel = document.querySelector('.goog-te-combo');
+        if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+    }
+    applyLang(lang);
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        translatePage(btn.getAttribute('data-lang'));
+    });
+});
+
+var saved = localStorage.getItem('kaelblog-lang') || 'zh';
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
+});
+if (saved !== 'zh') translatePage(saved);
+</script>
+
+</body>
+</html>

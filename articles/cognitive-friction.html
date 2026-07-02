@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认知摩擦 — Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--text); }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 52px;
+        }
+        .back {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color var(--transition);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .back:hover { color: var(--accent); }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        .meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .meta-date { font-size: 13px; color: var(--text-dim); font-weight: 400; }
+        .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: var(--radius);
+            font-weight: 400;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .tag:hover { border-color: var(--border-hover); color: var(--accent); }
+        article { font-size: 16px; color: var(--text-muted); line-height: 1.85; padding-bottom: 80px; }
+        article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin: 48px 0 16px; line-height: 1.4;
+        }
+        article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 18px; font-weight: 500;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        article p { margin-bottom: 20px; }
+        article strong { color: var(--text); font-weight: 600; }
+        article blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 28px 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            color: var(--text-muted);
+        }
+        article ul, article ol { padding-left: 24px; margin-bottom: 20px; }
+        article li { margin-bottom: 8px; }
+        article code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: var(--bg-card);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+        article pre {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        article pre code { background: none; padding: 0; color: var(--text); }
+        article hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+        .lang-switch { display: flex; gap: 4px; font-size: 12px; }
+        .lang-switch button {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all var(--transition);
+        }
+        .lang-switch button:hover,
+        .lang-switch button.active { border-color: var(--accent); color: var(--accent); }
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
+        #comments { padding: 64px 0; border-top: 1px solid var(--border); }
+        .giscus-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .giscus-powered { font-size: 13px; color: var(--text-dim); margin-bottom: 28px; }
+        .giscus-container {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            background: var(--bg-card);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 26px; }
+            article { font-size: 15px; }
+            article h2 { font-size: 19px; }
+        }
+    </style>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'zh-CN',
+            includedLanguages: 'en,ja,ko,es,fr,de,zh-CN,zh-TW',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../index.html" class="back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span data-i18n="back">返回文章列表</span>
+        </a>
+        <h1>认知摩擦</h1>
+        <div class="meta">
+            <span class="meta-date">2026-07-03</span>
+            <div class="meta-tags">
+                <span class="tag">哲学</span>
+                <span class="tag">行动</span>
+            </div>
+            <div class="lang-switch">
+                <button data-lang="zh" class="active">ZH</button>
+                <button data-lang="en">EN</button>
+                <button data-lang="ja">JA</button>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <article>
+<p>你早就知道该怎么做了。问题是，你没有做。知道和做到之间的那条缝，不是信息差，是<strong>认知摩擦</strong>。</p>
+
+<h2>摩擦的来源</h2>
+
+<p>物理世界里，摩擦力源于两个表面之间的凹凸咬合。认知摩擦的本质也一样——你的大脑知道该行动，但大脑的另一部分在同时产生阻力。这两部分都是你。</p>
+
+<p>举一个具体的例子：你知道现在应该去睡觉，因为明天有重要的事。但你打开了一个视频，然后是下一个，然后是下一个。两个"你"都在场：一个知道该停了，另一个正在滑动屏幕。两个人格都在运作，但只有一个人在喊。</p>
+
+<blockquote>认知摩擦不是懒。懒是结果，不是原因。摩擦是那个让你"知道但不动"的具体阻力。</blockquote>
+
+<h2>摩擦的类型</h2>
+
+<p>第一种摩擦叫<strong>启动摩擦</strong>。做任何事的第一步都需要额外的能量，而第一个动作之后的连续动作，摩擦系数会急剧下降。这就是为什么"先做五分钟"这个策略在理论上有效——因为它针对的是启动摩擦，不是持续摩擦。</p>
+
+<p>第二种摩擦叫<strong>转换摩擦</strong>。你在做 A，但 B 突然变得更紧急。大脑在 A 和 B 之间切换时，需要消耗认知资源来重新加载上下文。这个加载过程，就是转换摩擦的代价。你可能感觉"只是切换了一下"，但你的效率在切换的瞬间跌到了零。</p>
+
+<p>第三种摩擦叫<strong>承诺摩擦</strong>。行动一旦做出，就不可撤回。大脑在行动之前，会本能地模拟行动之后的路径——如果模拟出任何一个负面分支，承诺摩擦就会变大。这就是为什么"分析瘫痪"在复杂决策中比任何其他问题都更常见。</p>
+
+<h2>摩擦的杠杆效应</h2>
+
+<p>有意思的是，摩擦也可以被利用。物理摩擦在需要制动的时候会变成你的朋友——刹车就是利用摩擦力来控制速度。认知摩擦同样如此。</p>
+
+<p>把手机放到另一个房间，是在增加启动摩擦——你需要额外的物理动作才能拿起手机。设置一个复杂的密码再登录某个网站，也是在增加摩擦，只是方向相反——它在阻止你做一些不该做的事。</p>
+
+<p>好的系统设计，不是减少所有摩擦，而是<strong>减少正确方向的摩擦，增加错误方向的摩擦</strong>。一个真正好的习惯养成系统，应该是让好习惯的启动摩擦趋近于零，让坏习惯的启动摩擦高到令人望而却步。</p>
+
+<h2>消除摩擦的错误方式</h2>
+
+<p>大部分人试图用"意志力"来克服认知摩擦。这相当于用蛮力来消除物理摩擦——你可能成功一次，但你每次都需要重新调用那个蛮力。意志力是消耗品，不是可持续的解决方案。</p>
+
+<p>真正有效的方式只有两种：第一，<strong>改变环境</strong>，让摩擦本身消失；第二，<strong>把行动变成反射</strong>，绕开需要摩擦的决策回路。环境设计解决的是外部摩擦，习惯养成解决的是内部摩擦。两者结合，才能让认知摩擦降到最低。</p>
+
+<blockquote>不要跟摩擦对抗。去设计一个让摩擦站在你这边的系统。</blockquote>
+
+<p>知道但不做，本质上不是认知问题，是系统问题。你的认知没有错，你的环境设计需要重写。</p>
+        </article>
+    </div>
+</main>
+
+<div id="comments">
+    <div class="container">
+        <div class="giscus-title" data-i18n="comments_title">评论</div>
+        <div class="giscus-powered" data-i18n="comments_powered">由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论</div>
+        <div class="giscus-container">
+            <div class="giscus"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://giscus.app/client.js"
+    data-repo="Antisubmissivist/kael-blog"
+    data-repo-id="R_kgDOSTkxBw"
+    data-category="General"
+    data-category-id="DIC_kwDOSTkxB84C8Scj"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<script>
+var i18n = {
+    zh: { back: '返回文章列表', comments_title: '评论', comments_powered: '由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论' },
+    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus — Sign in with GitHub to comment' },
+    ja: { back: '記事リストに戻る', comments_title: 'コメント', comments_powered: 'Giscus 提供 — GitHubアカウントでログインしてコメント' }
+};
+
+function applyLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    localStorage.setItem('kaelblog-lang', lang);
+}
+
+function translatePage(lang) {
+    var gtcFrame = document.querySelector('.goog-te-banner-frame');
+    if (gtcFrame) { gtcFrame.style.display = 'none'; }
+
+    if (lang === 'zh') {
+        if (typeof google !== 'undefined' && google.translate) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+        }
+        applyLang(lang);
+        return;
+    }
+
+    var langMap = { en: 'en', ja: 'ja' };
+    var gLang = langMap[lang] || lang;
+
+    if (typeof google !== 'undefined' && google.translate) {
+        var sel = document.querySelector('.goog-te-combo');
+        if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+    }
+    applyLang(lang);
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        translatePage(btn.getAttribute('data-lang'));
+    });
+});
+
+var saved = localStorage.getItem('kaelblog-lang') || 'zh';
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
+});
+if (saved !== 'zh') translatePage(saved);
+</script>
+
+</body>
+</html>
