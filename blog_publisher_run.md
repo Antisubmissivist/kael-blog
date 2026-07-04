@@ -1,3 +1,26 @@
+## 2026-07-05 02:15 JST — Run #17 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《恐惧是燃料》（Fear Is the Fuel）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_fear_is_the_fuel.py` 直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+
+### 文章信息
+- **标题**: 恐惧是燃料
+- **Slug**: `fear-is-the-fuel.html`
+- **日期**: 2026-07-05
+- **标签**: 交易、哲学
+- **主题**: BTC整固+1.4%、F&G=22极度恐惧仍未跟随价格修复、恐惧是上涨的原材料而非阻碍、整固的本质是呼吸而非停顿、情绪缺口必然收敛、F&G极值是最强结构性买入信号之一
+- **字数**: ~800字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（`antisubmissivist-site` 项目）
+- **Commit**: `64caf2d` — "feat: add article - 恐惧是燃料 / Fear Is the Fuel (2026-07-05)"
+- **Production**: https://kaelblog.com ✅ ACTIVE（pending GitHub Actions 构建）
+- **文章数量**: 38篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **新脚本**: `add_fear_is_the_fuel.py`
+
 ## 2026-07-03 02:10 JST — Run #16 (cron)
 
 ### 执行摘要
