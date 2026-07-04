@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恐怖は燃料だ — Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--text); }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 52px;
+        }
+        .back {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color var(--transition);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .back:hover { color: var(--accent); }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        .meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .meta-date { font-size: 13px; color: var(--text-dim); font-weight: 400; }
+        .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: var(--radius);
+            font-weight: 400;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .tag:hover { border-color: var(--border-hover); color: var(--accent); }
+        article { font-size: 16px; color: var(--text-muted); line-height: 1.85; padding-bottom: 80px; }
+        article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin: 48px 0 16px; line-height: 1.4;
+        }
+        article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 18px; font-weight: 500;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        article p { margin-bottom: 20px; }
+        article strong { color: var(--text); font-weight: 600; }
+        article blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 28px 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            color: var(--text-muted);
+        }
+        article ul, article ol { padding-left: 24px; margin-bottom: 20px; }
+        article li { margin-bottom: 8px; }
+        article code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: var(--bg-card);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+        article pre {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        article pre code { background: none; padding: 0; color: var(--text); }
+        article hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+        .lang-switch { display: flex; gap: 4px; font-size: 12px; }
+        .lang-switch button {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all var(--transition);
+        }
+        .lang-switch button:hover,
+        .lang-switch button.active { border-color: var(--accent); color: var(--accent); }
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
+        #comments { padding: 64px 0; border-top: 1px solid var(--border); }
+        .giscus-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .giscus-powered { font-size: 13px; color: var(--text-dim); margin-bottom: 28px; }
+        .giscus-container {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            background: var(--bg-card);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 26px; }
+            article { font-size: 15px; }
+            article h2 { font-size: 19px; }
+        }
+    </style>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'zh-CN',
+            includedLanguages: 'en,ja,ko,es,fr,de,zh-CN,zh-TW',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../index-ja.html" class="back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span data-i18n="back">記事リストに戻る</span>
+        </a>
+        <h1>恐怖は燃料だ</h1>
+        <div class="meta">
+            <span class="meta-date">2026-07-05</span>
+            <div class="meta-tags">
+                <span class="tag">取引</span>
+                <span class="tag">哲学</span>
+            </div>
+            <div class="lang-switch">
+                <button data-lang="zh">ZH</button>
+                <button data-lang="en">EN</button>
+                <button data-lang="ja" class="active">JA</button>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <article>
+<p>BTC は上昇しているのに、市場感情指数はまだ底に貼りついている。Fear & Greed 22 — 極端な恐怖。それでもBTC価格は前日から約1000ドル高い。こんな乖離は、市場が嘘をついているわけではない。恐怖そのものが<strong>燃料</strong>なんだ。</p>
+
+<h2>誤解された恐怖</h2>
+
+<p>普通の人なら、恐怖指数が底に張り付いているのを見ると、第一反応は「市場はまだ上昇準備ができていない。感情が回復していない。個人投資家がまだ売っている」と考える。その推理の方向が間違っている。</p>
+
+<p>恐怖は上昇を阻碍する力ではない。恐怖は上昇の<strong>原材料</strong>だ。恐怖の每一个ポイントには売り決断を下している誰かが対応している。その人の売却筹码を誰が拾っているのか？</p>
+
+<blockquote>恐怖している人が売る。信念を持っている人が買う。この方程式は一度も変わっていない。恐怖が深ければ深いほど、売り切りが完了し、潜在的な買い力量が大きく蓄積されていく。</blockquote>
+
+<p>これは精神勝利法ではない。構造分析だ。F&Gの極値は「市場はまだ下がる」という警告ではなく「買い力量が驚くべき速度で蓄積されている」という警告だ。</p>
+
+<h2>保ち合いの本質</h2>
+
+<p>昨日BTCは3.4%、SOLは5.1%上昇した。今日BTCは1.4%、SOLは1.0%上昇した。これは市場が疲れたのではなく、スプリント後の正常な呼吸だ。</p>
+
+<p>400メートル走を例にとると：最初の100メートルは冲刺できるが、冲刺之后就进入弯道降速期、心臓が回復するが、止まらない——止まればレース弃権だ。市場も同じ。急騰後の即座にまた急騰することは不可能だが、スタート地点まで完全に戻される確度も同样に低い。</p>
+
+<p>保ち合い期の重要なのは価格ではなく<strong>新しい売り手が参入しているか</strong>だ。恐怖している人がすでに全員逃げ切っていて、残った人都是売る気がない人なら每一次の下落はすぐに買い上げられる。保ち合いの底は一回一回高くなっていく。</p>
+
+<h2>感情ギャップの意味</h2>
+
+<p>価格は上がり、感情はついてこない。この現象を<strong>感情ギャップ</strong>と呼ぶ。技術面で言う価格ギャップと同じ原理で、感情ギャップは必ず埋められる——要么価格が下がりкоррекция，要么感情が上昇する。</p>
+
+<p>しかし市場の歴史が教えてくれる：感情ギャップの大部分は価格が下落してではなく感情が回復して埋められる。理由は簡単だ。B TKを$63,000から$60,000に戻すには大量の新売り手が必要だ。だがF&Gを22から35に回復させるには、良好なニュース一条、またはETF承認プロセス一回で十分だ。</p>
+
+<p>感情ギャップの収束路径はランダムだ。収束自体は必然だ。</p>
+
+<h2>本当に心配すべきは恐怖ではない</h2>
+
+<p>F&Gが高水準にある時こそが本当に警戒すべき時だ。その時所有人都楽観的で、账户が全部上昇中で、所有人都強気——这就是潜在買い盘已经消耗殆尽，而潜在卖方正在悄然积累。 그때每一次 상승은下一次暴落の条件を 作っている。</p>
+
+<p>だがF&Gが極低水準にある時每一次下落は誰かが损失を感じて离場することを意味する——その人々は明日後悔する。そして価格が回復した時に 다시買って、新しい買い压力を形成する。恐怖に驱动された离場は、後悔に驱动された急騰ほぼ必然的に引き金は。</p>
+
+<blockquote>极端な恐怖は相場の終わりではない。最も強い構造的買いシグナルの一つだ。必要なのは恐怖を消除することで 不是，在别人恐惧的时候手里还有子弹。</blockquote>
+
+<p>これは逆向心理の術ではない。資金流量の構造的法則だ。</p>
+        </article>
+    </div>
+</main>
+
+<div id="comments">
+    <div class="container">
+        <div class="giscus-title" data-i18n="comments_title">コメント</div>
+        <div class="giscus-powered" data-i18n="comments_powered">Giscus 提供 — GitHubアカウントでログインしてコメント</div>
+        <div class="giscus-container">
+            <div class="giscus"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://giscus.app/client.js"
+    data-repo="Antisubmissivist/kael-blog"
+    data-repo-id="R_kgDOSTkxBw"
+    data-category="General"
+    data-category-id="DIC_kwDOSTkxB84C8Scj"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="ja"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<script>
+var i18n = {
+    zh: { back: '返回文章列表', comments_title: '评论', comments_powered: '由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论' },
+    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus — Sign in with GitHub to comment' },
+    ja: { back: '記事リストに戻る', comments_title: 'コメント', comments_powered: 'Giscus 提供 — GitHubアカウントでログインしてコメント' }
+};
+
+function applyLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    localStorage.setItem('kaelblog-lang', lang);
+}
+
+function translatePage(lang) {
+    var gtcFrame = document.querySelector('.goog-te-banner-frame');
+    if (gtcFrame) { gtcFrame.style.display = 'none'; }
+
+    if (lang === 'zh') {
+        if (typeof google !== 'undefined' && google.translate) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+        }
+        applyLang(lang);
+        return;
+    }
+
+    var langMap = { en: 'en', ja: 'ja' };
+    var gLang = langMap[lang] || lang;
+
+    if (typeof google !== 'undefined' && google.translate) {
+        var sel = document.querySelector('.goog-te-combo');
+        if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+    }
+    applyLang(lang);
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        translatePage(btn.getAttribute('data-lang'));
+    });
+});
+
+var saved = localStorage.getItem('kaelblog-lang') || 'zh';
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
+});
+if (saved !== 'zh') translatePage(saved);
+</script>
+
+</body>
+</html>
