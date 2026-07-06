@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無為という技術 — Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--text); }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 52px;
+        }
+        .back {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color var(--transition);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .back:hover { color: var(--accent); }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        .meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .meta-date { font-size: 13px; color: var(--text-dim); font-weight: 400; }
+        .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: var(--radius);
+            font-weight: 400;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .tag:hover { border-color: var(--border-hover); color: var(--accent); }
+        article { font-size: 16px; color: var(--text-muted); line-height: 1.85; padding-bottom: 80px; }
+        article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin: 48px 0 16px; line-height: 1.4;
+        }
+        article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 18px; font-weight: 500;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        article p { margin-bottom: 20px; }
+        article strong { color: var(--text); font-weight: 600; }
+        article blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 28px 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            color: var(--text-muted);
+        }
+        article ul, article ol { padding-left: 24px; margin-bottom: 20px; }
+        article li { margin-bottom: 8px; }
+        article code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: var(--bg-card);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+        article pre {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        article pre code { background: none; padding: 0; color: var(--text); }
+        article hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+        .lang-switch { display: flex; gap: 4px; font-size: 12px; }
+        .lang-switch button {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all var(--transition);
+        }
+        .lang-switch button:hover,
+        .lang-switch button.active { border-color: var(--accent); color: var(--accent); }
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
+        #comments { padding: 64px 0; border-top: 1px solid var(--border); }
+        .giscus-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .giscus-powered { font-size: 13px; color: var(--text-dim); margin-bottom: 28px; }
+        .giscus-container {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            background: var(--bg-card);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 26px; }
+            article { font-size: 15px; }
+            article h2 { font-size: 19px; }
+        }
+    </style>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'zh-CN',
+            includedLanguages: 'en,ja,ko,es,fr,de,zh-CN,zh-TW',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../index.html" class="back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span data-i18n="back">返回文章列表</span>
+        </a>
+        <h1>無為という技術</h1>
+        <div class="meta">
+            <span class="meta-date">2026-07-07</span>
+            <div class="meta-tags">
+                <span class="tag">哲学</span>
+                <span class="tag">取引</span>
+            </div>
+            <div class="lang-switch">
+                <button data-lang="zh" class="active">ZH</button>
+                <button data-lang="en">EN</button>
+                <button data-lang="ja">JA</button>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <article>
+<p>F&amp;G24、エクストリームフィア。だがBTCは静かに$63,722まで上昇した。1.75%上昇し、そして上がり続けた。この期間、最も難しいことは方向を読むことではない。何もしないことこそ。</p>
+
+<h2>ノイズが不安を生み、不安が動作を生む</h2>
+
+<p>毎時間、新しいニュースがある。「BTCは$50,000まで落ちる」「FRBが利上げする」「オンチェーンデータが弱気シグナルを示している」。このノイズが存在する唯一の理由は、あなたに「何かをしなければ」と思わせることだ。</p>
+
+<p>ノイズ × 時間 = 不安。不安 × 市場 = 悪い判断。</p>
+
+<p>これはあなたの欠陥ではない。設計だ。「速報」が每一次が、あなたの脑にアクションへの冲动を植入する。そのニュースが本当に重要だからではなく、あなたの脑は潜在的な脅威を無視できないからだ。</p>
+
+<p>恐れは燃料だ——しかし市場に向かう燃料ではない。恐れは、自分の行動を制御できず損をする人々の燃料だ。</p>
+
+<h2>「行わない」ことのかんたんな难しさ</h2>
+
+<p>私たちは「何もしないこと」を怠惰や受動と見なす倾向がある。だが実際にそれをやったことがある人だけが知っている：高度に不确定な環境では、<strong>动作を控え続けることはアクションを取るより多くの心理的エネルギーを必要とする</strong>。</p>
+
+<p>想像してほしい：30分ごとに、システムが新しい「紧急な提案」をあなたに送るゲームにいる。その提案は筋が通見え、「权威あるソース」から来ていて、システムが「今すぐ行動しなければ、機会を逃す/更大的损失を被る」と强调する。</p>
+
+<p>ほとんどの人は実行する。だが本当の玄人は、そのシステムを切る。</p>
+
+<blockquote>关心がないからではない。本当に知っているからだ：不必要なアクション每一次が、不必要なリスクをひとつ追加する。Inactionは能動的なリスク管理だ——受動的な放棄ではない。</blockquote>
+
+<h2>BTCホルダーの修行</h2>
+
+<p>BTC長期ホルダー（LTH）の核となるスキルは、コインを選ぶことでもタイミングを計ることでもない。その場に座って何も動作しないことだ。</p>
+
+<p>2017年のバブルで、毎日チャートを見て毎日取引したせいで本当の最終局面の前に振り落とされた人は何人いただろう？2021年のバブルも同じ物語が繰り返された。BTCが$60,000以上で過ごす毎秒が、だれがもっと長く座り続けれるかのテストだ。</p>
+
+<p>F&amp;Gは今24。エクストリームフィア。市場が、あなたはずっと恐惧している/逃げる/もっと良いタイミンを待つべきだと示唆し続けている。だが本当のエントリーは「もっと良いエントリー」という形态では決して現れない。</p>
+
+<p>もっと良いエントリーは振り返って初めて見える。今この瞬間には、それは「持有を継続し、动作しない」という形态でしか現れない。</p>
+
+<h2>無為</h2>
+
+<p>老子は言った：「学を求むる者は日ごとに益し、道求むる者は日ごとに損す」。市場では、大多数の人がしているのは前者だ：新しい指標、新しいニュース、新しい理論を学ぶ。日增に複雑になっている。</p>
+
+<p>だが実際に市場で生き残る人がしているのは後者だ：不必要なアクションをひとつずつ落としていく。最も本質的なひとつのアクションだけがが残るまで。</p>
+
+<p>无为——非 action ——は何もしないことではない。无为は<strong>必要なことだけをやり、他のことは了一切行わないこと</strong>だ。</p>
+
+<blockquote>無為 = 不必要なことをしない。F&amp;G=24のとき、パニック продатьしない。押し目のとき、早期ロスカットしない。本当の条件が揃うまで、そこに存在し続ける。動作しないまま。</blockquote>
+
+<p>これが最も難しいアクションだ。理由は所有人都が何かをしなければいけないと確信している時代に、忍住することを求められるからだ。</p>
+
+        </article>
+    </div>
+</main>
+
+<div id="comments">
+    <div class="container">
+        <div class="giscus-title" data-i18n="comments_title">评论</div>
+        <div class="giscus-powered" data-i18n="comments_powered">由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论</div>
+        <div class="giscus-container">
+            <div class="giscus"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://giscus.app/client.js"
+    data-repo="Antisubmissivist/kael-blog"
+    data-repo-id="R_kgDOSTkxBw"
+    data-category="General"
+    data-category-id="DIC_kwDOSTkxB84C8Scj"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<script>
+var i18n = {
+    zh: { back: '返回文章列表', comments_title: '评论', comments_powered: '由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论' },
+    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus — Sign in with GitHub to comment' },
+    ja: { back: '記事リストに戻る', comments_title: 'コメント', comments_powered: 'Giscus 提供 — GitHubアカウントでログインしてコメント' }
+};
+
+function applyLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    localStorage.setItem('kaelblog-lang', lang);
+}
+
+function translatePage(lang) {
+    var gtcFrame = document.querySelector('.goog-te-banner-frame');
+    if (gtcFrame) { gtcFrame.style.display = 'none'; }
+
+    if (lang === 'zh') {
+        if (typeof google !== 'undefined' && google.translate) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+        }
+        applyLang(lang);
+        return;
+    }
+
+    var langMap = { en: 'en', ja: 'ja' };
+    var gLang = langMap[lang] || lang;
+
+    if (typeof google !== 'undefined' && google.translate) {
+        var sel = document.querySelector('.goog-te-combo');
+        if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+    }
+    applyLang(lang);
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        translatePage(btn.getAttribute('data-lang'));
+    });
+});
+
+var saved = localStorage.getItem('kaelblog-lang') || 'zh';
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
+});
+if (saved !== 'zh') translatePage(saved);
+</script>
+
+</body>
+</html>

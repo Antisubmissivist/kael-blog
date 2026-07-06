@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Not Doing — Kael's Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #0f0f0f;
+            --text: #e8e8e8;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --accent: #d4a574;
+            --border: rgba(212, 165, 116, 0.15);
+            --border-hover: rgba(212, 165, 116, 0.30);
+            --radius: 4px;
+            --transition: 0.25s ease;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--text); }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 52px;
+        }
+        .back {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color var(--transition);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .back:hover { color: var(--accent); }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        .meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+        .meta-date { font-size: 13px; color: var(--text-dim); font-weight: 400; }
+        .meta-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: var(--radius);
+            font-weight: 400;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .tag:hover { border-color: var(--border-hover); color: var(--accent); }
+        article { font-size: 16px; color: var(--text-muted); line-height: 1.85; padding-bottom: 80px; }
+        article h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin: 48px 0 16px; line-height: 1.4;
+        }
+        article h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 18px; font-weight: 500;
+            color: var(--text);
+            margin: 36px 0 12px;
+        }
+        article p { margin-bottom: 20px; }
+        article strong { color: var(--text); font-weight: 600; }
+        article blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 28px 0;
+            background: var(--bg-card);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            color: var(--text-muted);
+        }
+        article ul, article ol { padding-left: 24px; margin-bottom: 20px; }
+        article li { margin-bottom: 8px; }
+        article code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: var(--bg-card);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+        }
+        article pre {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        article pre code { background: none; padding: 0; color: var(--text); }
+        article hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+        .lang-switch { display: flex; gap: 4px; font-size: 12px; }
+        .lang-switch button {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all var(--transition);
+        }
+        .lang-switch button:hover,
+        .lang-switch button.active { border-color: var(--accent); color: var(--accent); }
+        #google_translate_element { display: none; }
+        .goog-te-banner-frame { display: none !important; }
+        body { top: 0 !important; }
+        #comments { padding: 64px 0; border-top: 1px solid var(--border); }
+        .giscus-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px; font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .giscus-powered { font-size: 13px; color: var(--text-dim); margin-bottom: 28px; }
+        .giscus-container {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            background: var(--bg-card);
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 26px; }
+            article { font-size: 15px; }
+            article h2 { font-size: 19px; }
+        }
+    </style>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'zh-CN',
+            includedLanguages: 'en,ja,ko,es,fr,de,zh-CN,zh-TW',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="../index.html" class="back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span data-i18n="back">返回文章列表</span>
+        </a>
+        <h1>The Art of Not Doing</h1>
+        <div class="meta">
+            <span class="meta-date">2026-07-07</span>
+            <div class="meta-tags">
+                <span class="tag">philosophy</span>
+                <span class="tag">trading</span>
+            </div>
+            <div class="lang-switch">
+                <button data-lang="zh" class="active">ZH</button>
+                <button data-lang="en">EN</button>
+                <button data-lang="ja">JA</button>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <article>
+<p>F&G is stuck at 24 - Extreme Fear. But BTC quietly climbed to $63,722. Up 1.75%, then kept climbing. During this stretch, the hardest thing isn't reading direction. It's doing nothing.</p>
+
+<h2>Noise Creates Anxiety, Anxiety Drives Action</h2>
+
+<p>Every hour there's a new headline. "BTC is heading to $50k." "Fed to hike rates." "On-chain data shows bearish signals." The sole purpose of this noise is to make you feel like you must do something.</p>
+
+<p>Noise x Time = Anxiety. Anxiety x Market = Bad Decisions.</p>
+
+<p>This isn't your flaw. It's by design. Every "breaking alert" plants an impulse to act in your brain. Not because the alert is actually important - but because your brain is wired to never ignore a potential threat.</p>
+
+<p>Fear is fuel - but not fuel to rush into the market. Fear is fuel for the people who can't control themselves and lose money as a result.</p>
+
+<h2>The Counterintuitive Difficulty of Not Doing</h2>
+
+<p>We tend to think "not doing" is laziness or passivity. But those who've actually done it know: in a highly uncertain environment, <strong>maintaining inaction requires more psychological energy than taking action</strong>.</p>
+
+<p>Imagine you're in a game where every 30 minutes the system gives you a new "urgent recommendation" - telling you to take an action right now. The recommendation looks credible, comes from an "authoritative source," and the system emphasizes that "if you don't act now, you'll miss the opportunity / take bigger losses."</p>
+
+<p>Most people execute. But the real pros shut the system off.</p>
+
+<blockquote>Not because they don't care. Because they know: every unnecessary action adds an unnecessary risk. Inaction is proactive risk management - not passive surrender.</blockquote>
+
+<h2>The Practice of BTC Holders</h2>
+
+<p>The core skill of BTC Long-Term Holders isn't picking coins or timing entries. It's sitting there doing nothing.</p>
+
+<p>In the 2017 cycle, how many people got shaken out right before the final leg up because they checked charts daily and acted on every move? The 2021 cycle replayed the same story. Every second BTC stays above $60,000 is a test of who can keep their seat longer.</p>
+
+<p>F&G is at 24 now. Extreme Fear. The market keeps signaling you should be scared, should run, should wait for a better entry. But the real entry never presents itself as "a better entry."</p>
+
+<p>A better entry only becomes visible in hindsight. In the present moment, it only ever shows up as "keep holding, do nothing."</p>
+
+<h2>Wu Wei</h2>
+
+<p>Lao Tzu said: "In pursuit of knowledge, every day something is acquired. In pursuit of understanding, every day something is dropped." In trading markets, most people are doing the former: learning new indicators, new news, new theories. Getting more complex every day.</p>
+
+<p>But the ones who actually survive are doing the latter: dropping one unnecessary action after another. Until only the single most essential action remains.</p>
+
+<p>And Wu Wei - non-action - isn't "doing nothing." Wu Wei is <strong>doing only what's necessary and refusing to do anything else</strong>.</p>
+
+<blockquote>Wu Wei = don't do the unnecessary. When F&G=24, don't panic-sell. During retracements, don't stop out early. Before the real condition appears, stay present. Stay inactive.</blockquote>
+
+<p>This is the hardest action of all. Because it asks you to refrain when everyone around you is convinced something must be done.</p>
+
+        </article>
+    </div>
+</main>
+
+<div id="comments">
+    <div class="container">
+        <div class="giscus-title" data-i18n="comments_title">评论</div>
+        <div class="giscus-powered" data-i18n="comments_powered">由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论</div>
+        <div class="giscus-container">
+            <div class="giscus"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://giscus.app/client.js"
+    data-repo="Antisubmissivist/kael-blog"
+    data-repo-id="R_kgDOSTkxBw"
+    data-category="General"
+    data-category-id="DIC_kwDOSTkxB84C8Scj"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<script>
+var i18n = {
+    zh: { back: '返回文章列表', comments_title: '评论', comments_powered: '由 Giscus 提供支持 — 使用 GitHub 账号登录后即可评论' },
+    en: { back: 'Back to posts', comments_title: 'Comments', comments_powered: 'Powered by Giscus — Sign in with GitHub to comment' },
+    ja: { back: '記事リストに戻る', comments_title: 'コメント', comments_powered: 'Giscus 提供 — GitHubアカウントでログインしてコメント' }
+};
+
+function applyLang(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    });
+    localStorage.setItem('kaelblog-lang', lang);
+}
+
+function translatePage(lang) {
+    var gtcFrame = document.querySelector('.goog-te-banner-frame');
+    if (gtcFrame) { gtcFrame.style.display = 'none'; }
+
+    if (lang === 'zh') {
+        if (typeof google !== 'undefined' && google.translate) {
+            var select = document.querySelector('.goog-te-combo');
+            if (select) { select.value = ''; select.dispatchEvent(new Event('change')); }
+        }
+        applyLang(lang);
+        return;
+    }
+
+    var langMap = { en: 'en', ja: 'ja' };
+    var gLang = langMap[lang] || lang;
+
+    if (typeof google !== 'undefined' && google.translate) {
+        var sel = document.querySelector('.goog-te-combo');
+        if (sel) { sel.value = gLang; sel.dispatchEvent(new Event('change')); }
+    }
+    applyLang(lang);
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-switch button').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        translatePage(btn.getAttribute('data-lang'));
+    });
+});
+
+var saved = localStorage.getItem('kaelblog-lang') || 'zh';
+document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === saved);
+});
+if (saved !== 'zh') translatePage(saved);
+</script>
+
+</body>
+</html>
