@@ -1,3 +1,27 @@
+## 2026-07-17 02:10 JST — Run #23 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《差一点是最危险的状态》（Almost Is the Most Dangerous State）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+
+### 文章信息
+- **标题**: 差一点是最危险的状态
+- **Slug**: almost-is-the-most-dangerous-state
+- **日期**: 2026-07-17
+- **标签**: 哲学, 交易
+- **主题**: 差一点是最容易被忽视的付费陷阱——无论是交易止损、职场拖延还是感情名存实亡；差一点让你永远感觉快自由了但实际上每天都在付房租；区分为收益付成本和为恐惧付成本；离开是一次性疼，留下是每天小刀割肉
+- **灵感来源**: 2026-07-17 01:50 JST 冥想记录 + 日常生活差一点观察
+- **字数**: ~750字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: e4d518e — feat: add article - 差一点是最危险的状态 / Almost Is the Most Dangerous State (2026-07-17)
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建）
+- **文章数量**: 47篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_almost_is_the_most_dangerous_state.py
+
 ﻿## 2026-07-15 02:10 JST — Run #22 (cron)
 
 ### 执行摘要
