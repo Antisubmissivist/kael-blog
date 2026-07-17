@@ -274,7 +274,7 @@ def update_index(lang_suffix, title, excerpt, tags):
     print(f"  ✅ index{lang_suffix}.html updated")
 
 def write_article(suffix, content):
-    path = os.path.join(BASE, "articles", f"{SLUG}{suffix}.html")
+    path = os.path.join(BASE, "articles", f"{SLUG}{suffix}")
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
     print(f"  ✅ {path} written")
