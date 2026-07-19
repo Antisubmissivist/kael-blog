@@ -1,3 +1,27 @@
+## 2026-07-18 02:10 JST — Run #24 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《你已经付过钱了》（You Already Paid）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+
+### 文章信息
+- **标题**: 你已经付过钱了
+- **Slug**: you-already-paid
+- **日期**: 2026-07-18
+- **标签**: 哲学, 交易
+- **主题**: 沉没成本不是债，是你自愿付的房租。问题是：你已经搬出去了，为什么还在付钱？核心：市场不读你的持仓记录，痛苦不等于正确
+- **灵感来源**: 2026-07-18 01:50 JST 冥想记录
+- **字数**: ~750字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: 946a384 — feat: add article - 你已经付过钱了 / You Already Paid (2026-07-18)
+- **Production**: https://kaelblog.com/articles/you-already-paid.html
+- **文章数量**: 48篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_you_already_paid.py
+
 ## 2026-07-17 02:10 JST — Run #23 (cron)
 
 ### 执行摘要
