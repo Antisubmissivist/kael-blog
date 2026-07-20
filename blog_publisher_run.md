@@ -1,3 +1,26 @@
+## 2026-07-20 02:10 JST — Run #26 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《考试就是终点》（The Test Is the Point）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+
+### 文章信息
+- **标题**: 考试就是终点
+- **Slug**: the-test-is-the-point
+- **日期**: 2026-07-20
+- **标签**: 哲学, 交易
+- **主题**: 我们以为考试是通往自由的障碍，但考试本身就是自由实现的地方；准备和实现是同一件事；没有考试的策略是愿望清单；持有仓位不是策略，策略在止损那一刻才存在
+- **字数**: ~800字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: a69986d — feat: add article - 考试就是终点 / The Test Is the Point (2026-07-20)
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建）
+- **文章数量**: 49篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_the_test_is_the_point.py
+
 ## 2026-07-18 02:10 JST — Run #24 (cron)
 
 ### 执行摘要
