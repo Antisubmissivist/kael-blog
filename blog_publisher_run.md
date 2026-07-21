@@ -1,3 +1,27 @@
+## 2026-07-22 02:10 JST — Run #28 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《持仓就是策略》（Position Is the Strategy）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署（23s）
+- ✅ 部署验证：https://kaelblog.com/articles/position-is-the-strategy.html 返回 200 OK
+
+### 文章信息
+- **标题**: 持仓就是策略
+- **Slug**: position-is-the-strategy
+- **日期**: 2026-07-22
+- **标签**: 哲学, 交易
+- **主题**: 策略不是持仓之前的东西，策略就是持仓本身；持仓比计划诚实；持仓是被行为堆出来的；仓位大小是真实风险承受能力；卖出是策略的最后一段；持仓是论点，仓位是论据
+- **字数**: ~800字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（kael-blog 项目）
+- **Commit**: 9964d48 — feat: add article - 持仓就是策略 / Position Is the Strategy (2026-07-22)
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 51篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: update_index_0722.py
+
 ## 2026-07-21 02:10 JST — Run #27 (cron)
 
 ### 执行摘要
