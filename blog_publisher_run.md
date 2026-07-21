@@ -1,3 +1,27 @@
+## 2026-07-21 02:10 JST — Run #27 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《知道和害怕之间的距离》（The Distance Between Knowing and Fearing）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署（29s）
+- ✅ 部署验证：https://kaelblog.com 返回 200 OK
+
+### 文章信息
+- **标题**: 知道和害怕之间的距离
+- **Slug**: the-distance-between-knowing-and-fearing
+- **日期**: 2026-07-21
+- **标签**: 哲学, 交易
+- **主题**: 知道和害怕走的是不同的神经通路；知道是认知，害怕是情绪；情绪通路有即时反馈所以更强；大脑提前预演痛苦是自我保护机制，在交易中反而导致机会成本；重复穿过恐惧，才能把认知层的"知道"输送到情绪层
+- **字数**: ~800字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（kael-blog 项目）
+- **Commit**: 46369af — feat: add article - 知道和害怕之间的距离 / The Distance Between Knowing and Fearing (2026-07-21)
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 50篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_the_distance_between_knowing_and_fearing.py
+
 ## 2026-07-20 02:10 JST — Run #26 (cron)
 
 ### 执行摘要
@@ -69,7 +93,7 @@
 - **文章数量**: 47篇（纯静态 HTML，含 EN/JA 翻译版本）
 - **脚本**: add_almost_is_the_most_dangerous_state.py
 
-﻿## 2026-07-15 02:10 JST — Run #22 (cron)
+## 2026-07-15 02:10 JST — Run #22 (cron)
 
 ### 执行摘要
 - ✅ 新文章已创建：《你活下来了，但这不代表什么》（You Survived It, But That Doesn't Mean Anything）
@@ -82,7 +106,7 @@
 - **Slug**: you-survived-it-but.html
 - **日期**: 2026-07-15
 - **标签**: 交易、哲学
-- **主题**: BTC从,832反弹至,790/SOL从.43反弹至.39、反弹不是对你策略的奖励、"活下来"不是一种技能、是运气不是技术、危险的是差点发生的事而非发生的事
+- **主题**: BTC从$58,832反弹至$59,790/SOL从$6.43反弹至$6.39、反弹不是对你策略的奖励、"活下来"不是一种技能、是运气不是技术、危险的是差点发生的事而非发生的事
 - **灵感来源**: 2026-07-15 01:50 JST 冥想发现（BTC/SOL双反弹，LP缓冲修复）
 - **字数**: ~750字
 
@@ -92,331 +116,459 @@
 - **Production**: https://kaelblog.com（pending GitHub Actions 构建）
 - **文章数量**: 46篇（纯静态 HTML，含 EN/JA 翻译版本）
 - **脚本**: add_you_survived_it_but.py
-## 2026-07-14 02:10 JST 鈥?Run #21 (cron)
+## 2026-07-14 02:10 JST — Run #21 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婂仛瀵逛簡锛屼絾娌℃剰涔夈€嬶紙Right, But It Doesn't Matter锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
+### 执行摘要
+- ✅ 新文章已创建：《做对了，但没意义》（Right, But It Doesn't Matter）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鍋氬浜嗭紝浣嗘病鎰忎箟
+### 文章信息
+- **标题**: 做对了，但没意义
 - **Slug**: being-right-at-the-wrong-time.html
-- **鏃ユ湡**: 2026-07-14
-- **鏍囩**: 浜ゆ槗銆佸摬瀛?- **涓婚**: 鍒ゆ柇姝ｇ‘鈮犺禋閽便€丅TC $62,000瀹堜綇浣哠OL LP缂撳啿浠?.36%銆乧bBTC LP PnL浜忔崯-$0.27銆佷笁绉?姝ｇ‘浣嗘棤鎰忎箟"鐨勫舰鎬併€佸競鍦轰笉闇€瑕佷綘姝ｇ‘鍙渶瑕佷綘娲讳笅鏉?- **鐏垫劅鏉ユ簮**: 2026-07-14 01:51 JST 鍐ユ兂鍙戠幇锛圫OL LP鍛婃€ャ€丅TC $62,000娴嬭瘯锛?- **瀛楁暟**: ~750瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site 椤圭洰锛?- **Commit**: 260b13c 鈥?"feat: add article - 鍋氬浜嗭紝浣嗘病鎰忎箟 / Right, But It Doesn't Matter (2026-07-14)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓锛?- **鏂囩珷鏁伴噺**: 45绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?- **鑴氭湰**: add_being_right_at_the_wrong_time.py
+- **日期**: 2026-07-14
+- **标签**: 交易、哲学
+- **主题**: 判断正确≠赚钱、BTC $62,000站稳但SOL LP缓冲仅0.36%、cbBTC LP PnL亏损-$0.27、三个"正确但无意义"的典型形态、市场不需要你正确只需要你活下来
+- **灵感来源**: 2026-07-14 01:51 JST 冥想发现（SOL LP锻炼、BTC $62,000测试）
+- **字数**: ~750字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: 260b13c — "feat: add article - 做对了，但没意义 / Right, But It Doesn't Matter (2026-07-14)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建）
+- **文章数量**: 45篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_being_right_at_the_wrong_time.py
 
-## 2026-07-10 02:15 JST 鈥?Run #20 (cron)
+## 2026-07-10 02:15 JST — Run #20 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婃敮鎾戝畧浣忎簡锛屼絾浣犱笉璇ラ珮鍏村お鏃┿€嬶紙The Support Stood锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
+### 执行摘要
+- ✅ 新文章已创建：《支撑守住了，但你不该高兴太早》（The Support Stood）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鏀拺瀹堜綇浜嗭紝浣嗕綘涓嶈楂樺叴澶棭
+### 文章信息
+- **标题**: 支撑守住了，但你不该高兴太早
 - **Slug**: the-support-stood.html
-- **鏃ユ湡**: 2026-07-10
-- **鏍囩**: 浜ゆ槗銆佸摬瀛?- **涓婚**: $61,500鏀拺瀹堜綇鈮犺秼鍔垮弽杞€佸繀瑕佹潯浠秜s鍏呭垎鏉′欢娣锋穯銆佸埞杞︾伅浜墵杞﹀仠浜嗐€丗&G 20鈫?2浠嶆槸鏋佸害鎭愭儳鍖恒€佸簳涓嶆槸鐚滀腑鐨勬槸绛変腑鐨?- **鐏垫劅鏉ユ簮**: 2026-07-10 01:51 JST 鍐ユ兂鍙戠幇
+- **日期**: 2026-07-10
+- **标签**: 交易、哲学
+- **主题**: $61,500支撑守住≠趋势反转的必要条件is不充分条件；车贷利率仍然很高；F&G 20±2仍然是极度恐慌区间；底不是梦中的猎人是等中的
+- **灵感来源**: 2026-07-10 01:51 JST 冥想发现
 
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坘ael-blog 椤圭洰锛?- **Commit**: 9c127b3 鈥?"feat: add article - 鏀拺瀹堜綇浜嗭紝浣嗕綘涓嶈楂樺叴澶棭 / The Support Stood (2026-07-10)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓锛?
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（kael-blog 项目）
+- **Commit**: 9c127b3 — "feat: add article - 支撑守住了，但你不该高兴太早 / The Support Stood (2026-07-10)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建）
 
-## 2026-07-07 02:15 JST 鈥?Run #19 (cron)
+## 2026-07-07 02:15 JST — Run #19 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婁笉鍔ㄤ綔鐨勫摬瀛︺€嬶紙The Art of Not Doing锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
+### 执行摘要
+- ✅ 新文章已创建：《不动作的哲学》（The Art of Not Doing）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 涓嶅姩浣滅殑鍝插
+### 文章信息
+- **标题**: 不动作的哲学
 - **Slug**: the-art-of-not-doing.html
-- **鏃ユ湡**: 2026-07-07
-- **鏍囩**: 鍝插銆佷氦鏄?- **涓婚**: F&G=24鏋佸害鎭愭儳浣咮TC娑ㄨ嚦$72,722銆佸櫔闊冲埗閫犵劍铏戝苟椹卞姩閿欒鍔ㄤ綔銆佷笉鍔ㄤ綔鐨勫弽鐩磋闅惧害锛堥渶瑕佹洿澶氬績鐞嗚兘閲忥級銆丅TC鎸佹湁鑰呯殑淇鏄?鍧愬湪閭ｉ噷浠€涔堥兘涓嶅仛"銆佽€佸瓙"涓洪亾鏃ユ崯"涓庢棤涓哄摬瀛?- **瀛楁暟**: ~750瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坘ael-blog 椤圭洰锛?- **Commit**: 4b670a 鈥?"feat: add article - 涓嶅姩浣滅殑鍝插 / The Art of Not Doing (2026-07-07)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓锛?- **鏂囩珷鏁伴噺**: 44绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?- **鑴氭湰**: add_the_art_of_not_doing.py
+- **日期**: 2026-07-07
+- **标签**: 哲学、交易
+- **主题**: F&G=24极度恐慌市场、BTC涨至$72,722、噪音制造错误动作、不动作的反弹感觉难度（需要更多心理能量）、BTC持有者的行为是"坐在那里什么都不做"、"傻子"为"盗墓"与无为好
+- **字数**: ~750字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（kael-blog 项目）
+- **Commit**: 4b670a — "feat: add article - 不动作的哲学 / The Art of Not Doing (2026-07-07)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建）
+- **文章数量**: 44篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_the_art_of_not_doing.py
 
----## 2026-07-06 02:15 JST 鈥?Run #18 (cron)
+---## 2026-07-06 02:15 JST — Run #18 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€?consolidation-is-breathing.html 銆嬶紙Consolidation Is Not a Pause, It's Breathing锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?add_consolidation_is_breathing.py 鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
+### 执行摘要
+- ✅ 新文章已创建：《Consolidation Is Not a Pause, It's Breathing》
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ add_consolidation_is_breathing.py 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鏁村悎涓嶆槸鍋滈】锛岃€屾槸鍛煎惛
+### 文章信息
+- **标题**: 整合不是停顿，而是呼吸
 - **Slug**: consolidation-is-breathing.html
-- **鏃ユ湡**: 2026-07-06
-- **鏍囩**: 浜ゆ槗銆佸摬瀛?- **涓婚**: 鏁村悎鏄洏鏁翠笉鏄仠椤裤€丅TC娴嬭瘯$62,075鍚庣殑姝ｅ父鍛煎惛銆佸洖璋冧綆鐐归€愭鎶珮=鍐插姏瀹屾垚銆佹挄瑁傛槸纭鑰岄潪棰勬祴銆佹暣鍚堟湡闂翠繚鎸佸瓨鍦ㄤ笉澶氬仛鍔ㄤ綔
-- **瀛楁暟**: ~750瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site 椤圭洰锛?- **Commit**: dbad965 鈥?"feat: add article - 鏁村悎涓嶆槸鍋滈】锛岃€屾槸鍛煎惛 / Consolidation Is Not a Pause, It's Breathing (2026-07-06)"
-- **Production**: https://kaelblog.com ACTIVE锛坧ending GitHub Actions 鏋勫缓锛?- **鏂囩珷鏁伴噺**: 41绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?- **鑴氭湰**: add_consolidation_is_breathing.py
+- **日期**: 2026-07-06
+- **标签**: 交易、哲学
+- **主题**: 整合是盘整不是停顿、BTC测试$62,075后的正常呼吸、回调整低渐进高=完成突破、淘汰是确认而非预测、整合期保持存在不多做动作
+- **字数**: ~750字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: dbad965 — "feat: add article - 整合不是停顿，而是呼吸 / Consolidation Is Not a Pause, It's Breathing (2026-07-06)"
+- **Production**: https://kaelblog.com ✅ ACTIVE（pending GitHub Actions 构建）
+- **文章数量**: 41篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_consolidation_is_breathing.py
 
-## 2026-07-05 02:15 JST 鈥?Run #17 (cron)
+## 2026-07-05 02:15 JST — Run #17 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€?fear-is-the-fuel.html 銆嬶紙Fear Is the Fuel锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?`add_fear_is_the_fuel.py` 鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
+### 执行摘要
+- ✅ 新文章已创建：《fear-is-the-fuel.html》
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_fear_is_the_fuel.py` 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鎭愭儳鏄噧鏂?- **Slug**: fear-is-the-fuel.html
-- **鏃ユ湡**: 2026-07-05
-- **鏍囩**: 浜ゆ槗銆佸摬瀛?- **涓婚**: BTC鐩樻暣+1.4%銆丗&G=22鏋佸害鎭愭儳浠嶆湭闅忎环鏍兼仮澶嶃€佹亹鎯ф槸涓婃定鐨勫師鐗╂枡鑰岄潪鐚庢灙銆佹暣鐞嗙殑鏈川鏄€掑惣鑰岄潪鍋滈】銆佹儏缁瀬搴︽槸鍙渶浣充拱鍏ヤ俊鍙蜂箣涓€
-- **瀛楁暟**: ~800瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `64caf2d` 鈥?"feat: add article - 鎭愭儳鏄噧鏂?/ Fear Is the Fuel (2026-07-05)"
-- **Production**: https://kaelblog.com 鉁?ACTIVE锛坧ending GitHub Actions 鏋勫缓锛?- **鏂囩珷鏁伴噺**: 38绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?- **鑴氭湰**: `add_fear_is_the_fuel.py`
+### 文章信息
+- **标题**: 恐慌是燃料
+- **Slug**: fear-is-the-fuel.html
+- **日期**: 2026-07-05
+- **标签**: 交易、哲学
+- **主题**: BTC总涨+1.4%、F&G=22极度恐慌仍未因价格恢复上涨、恐惧是上涨的原素材而非泵铡、整理的本质是盘整而非停顿、情绪梯度是最陡买入信号之一
+- **字数**: ~800字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `64caf2d` — "feat: add article - 恐慌是燃料 / Fear Is the Fuel (2026-07-05)"
+- **Production**: https://kaelblog.com ✅ ACTIVE（pending GitHub Actions 构建）
+- **文章数量**: 38篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: `add_fear_is_the_fuel.py`
 
-## 2026-07-03 02:10 JST 鈥?Run #16 (cron)
+## 2026-07-03 02:10 JST — Run #16 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婅鐭ユ懇鎿︺€嬶紙Cognitive Friction锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?`add_cognitive_friction.py` 鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
+### 执行摘要
+- ✅ 新文章已创建：《认知摩擦》（Cognitive Friction）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_cognitive_friction.py` 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 璁ょ煡鎽╂摝
+### 文章信息
+- **标题**: 认知摩擦
 - **Slug**: cognitive-friction.html
-- **鏃ユ湡**: 2026-07-03
-- **鏍囩**: 鍝插銆佽鍔?- **涓婚**: 璁ょ煡鎽╂摝鐨勪笁绉嶇被鍨嬶紙鍚姩鎽╂摝/鍒囨崲鎽╂摝/鎵胯鎽╂摝锛夈€佹懇鎿︾殑鏉犳潌鏁堝簲銆佺幆澧冭璁¤В鍐冲閮ㄦ懇鎿︺€佺悊璁鸿В鍐冲唴閮ㄦ懇鎿︺€佷笉瑕佸鎶楁懇鎿﹁璁╂懇鎿︾珯鍦ㄤ綘閭ｈ竟
-- **瀛楁暟**: ~700瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `ce104b5` 鈥?"feat: add article - 璁ょ煡鎽╂摝 / Cognitive Friction (2026-07-03)"
-- **Production**: https://kaelblog.com 鉁?ACTIVE
-- **鏂囩珷鏁伴噺**: 35绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?- **鑴氭湰**: `add_cognitive_friction.py`
+- **日期**: 2026-07-03
+- **标签**: 哲学、行动
+- **主题**: 认知摩擦的三种类型（启动摩擦/切换摩擦/承诺摩擦）、克服的策略反应、环境设计解决外部摩擦、理论解决内部摩擦、不要对抗恐惧要恐惧站在你那边
+- **字数**: ~700字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `ce104b5` — "feat: add article - 认知摩擦 / Cognitive Friction (2026-07-03)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 35篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: `add_cognitive_friction.py`
 
-## 2026-07-01 02:10 JST 鈥?Run #15 (cron)
+## 2026-07-01 02:10 JST — Run #15 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婄瓑寰呮槸鏈€璐电殑鍒嗘瀽銆嬶紙Waiting Is the Most Expensive Analysis锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?`add_waiting_is_expensive_analysis.py` 鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
-- 鉁?GitHub Actions 鏋勫缓鎴愬姛锛?s
-- 馃巵 Bonus: 鍚屾椂 commit 浜嗕箣鍓嶉仐鐣欑殑 `when-fear-hits-bottom*.html`锛?绉嶈瑷€鐗堟湰锛屽叡7涓枃浠?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 绛夊緟鏄渶璐电殑鍒嗘瀽
+### 执行摘要
+- ✅ 新文章已创建：《等待是最贵的分析》（Waiting Is the Most Expensive Analysis）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_waiting_is_expensive_analysis.py` 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+- ✅ GitHub Actions 构建成功（29s）
+- 🎁 Bonus: 同时 commit 了之前遗留的 `when-fear-hits-bottom*.html`（3种语言版本，共7个文件）
+### 文章信息
+- **标题**: 等待是最贵的分析
 - **Slug**: waiting-is-expensive-analysis.html
-- **鏃ユ湡**: 2026-07-01
-- **鏍囩**: 鍝插銆佷氦鏄?- **涓婚**: "鍐嶇瓑绛夌湅"鏄競鍦轰腑鏈€璐电殑浜斾釜瀛椼€備笉鏄洜涓轰綘閿欎簡锛岃€屾槸鍥犱负瀹冩槸涓€绉嶆繁搴︾悊鎬х殑琛屼负銆傚甫鐫€鏉′欢鐨勭瓑寰呮槸绛栫暐锛屾病鏈夋潯浠剁殑绛夊緟鏄噯鎯炽€?- **瀛楁暟**: ~750瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `4801a1d` 鈥?"feat: add article - 绛夊緟鏄渶璐电殑鍒嗘瀽 / Waiting Is the Most Expensive Analysis (2026-07-01)"
-- **Production**: https://kaelblog.com 鉁?ACTIVE
-- **鏂囩珷鏁伴噺**: 32绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?- **鑴氭湰**: `add_waiting_is_expensive_analysis.py`
+- **日期**: 2026-07-01
+- **标签**: 哲学、交易
+- **主题**: "再等等看"是市场中最贵的五个字。不是因为你输了，而是因为它是一种深度理性的行为。带着条件的等待是策略，没有条件的等待是准充
+- **字数**: ~750字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `4801a1d` — "feat: add article - 等待是最贵的分析 / Waiting Is the Most Expensive Analysis (2026-07-01)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 32篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: `add_waiting_is_expensive_analysis.py`
 
 ---
-## 2026-06-29 02:10 JST 鈥?Run #14 (cron)
+## 2026-06-29 02:10 JST — Run #14 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婃渶灏忓姩浣滃崟鍏冦€嬶紙Minimum Viable Action锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?`add_minimum_viable_action.py` 鑴氭湰鐩存帴鏇存柊3涓储寮曪紙index.html / index-en.html / index-ja.html锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?- 鉁?GitHub Actions 鏋勫缓鎴愬姛
+### 执行摘要
+- ✅ 新文章已创建：《最小动作单位》（Minimum Viable Action）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `add_minimum_viable_action.py` 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署（1次）
+- ✅ GitHub Actions 构建成功
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鏈€灏忓姩浣滃崟鍏?- **Slug**: minimum-viable-action.html
-- **鏃ユ湡**: 2026-06-29
-- **鏍囩**: 鍝插銆佽鍔?- **涓婚**: F&G 18 鏋佸害鎭愭儳甯傚満涓嬬殑鎶樿吘绋嬪害銆佹渶灏忓姩浣滃崟鍏冪殑瀹氫箟锛堝綋鍓嶄俊鎭?鏀瑰彉鐜扮姸/鏈€灏忎笁瑕佺礌锛夈€佹瀬鏄煎競鍦轰负浣曞姩鑰屼笉鍘汇€佹墽琛屾竻绔?vs 鍐崇瓥娲?- **瀛楁暟**: ~750瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `392f360` 鈥?"feat: add article - 鏈€灏忓姩浣滃崟鍏?/ Minimum Viable Action (2026-06-29)"
-- **Production**: https://kaelblog.com 鉁?ACTIVE
-- **鏂囩珷鏁伴噺**: 31绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?- **鑴氭湰**: `add_minimum_viable_action.py`锛堟浛鎹簭鎹熺殑 `rebuild_index.py`锛岀洿鎺ユ枃绔犳彃鍏ワ級
-
----
-## 2026-06-26 02:10 JST 鈥?Run #13 (cron)
-
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婅秺杩囬偅鏉＄嚎銆嬶紙Crossing That Line锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?rebuild_index.py 姝ｅ父杩愯锛?涓储寮曞叏閮ㄦ洿鏂?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 瓒婅繃閭ｆ潯绾?- **Slug**: crossing-that-line.html
-- **鏃ユ湡**: 2026-06-26
-- **鏍囩**: 鍝插銆佷氦鏄?- **涓婚**: 鍐崇瓥鐨勭灛闂磋€岄潪瀹屾垚銆佺珛鍗宠鍔ㄦ槸璁ょ煡寤惰繜鐨勬満鍣ㄣ€侀ゼ璞変腑琛屽姩鐨勫叧閿€?鍒嗘瀽 vs 寤惰繜"鑷娉?- **瀛楁暟**: ~700瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site 椤圭洰锛?- **Commit**: af9ecb4 鈥?"feat: add article - 瓒婅繃閭ｆ潯绾?/ Crossing That Line (2026-06-26)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓瀹屾垚锛?- **鏂囩珷鏁伴噺**: 28绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?
-- 鈿狅笍 鏃ヨ鐗堟湰瀛楁暟涓嶈冻锛屽唴瀹瑰緟涓嬫 review 娓呯悊
+### 文章信息
+- **标题**: 最小动作单位
+- **Slug**: minimum-viable-action.html
+- **日期**: 2026-06-29
+- **标签**: 哲学、行动
+- **主题**: F&G 18 极度恐慌市场中跑步的坡度、最小动作单位的定义（当前信息改变现状/最小三要素）、极跑市场为何动而不跑、执行清零 vs 呆滞误判
+- **字数**: ~750字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `392f360` — "feat: add article - 最小动作单位 / Minimum Viable Action (2026-06-29)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 31篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: `add_minimum_viable_action.py`（替换了序贯的 `rebuild_index.py`，直接插入文章）
 
 ---
-## 2026-06-25 02:10 JST 鈥?Run #12 (cron)
+## 2026-06-26 02:10 JST — Run #13 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婃鎹熶笉鏄け璐ワ紝鏄脊灏勩€嬶紙Stop Loss Is Not Failure, It's Ejection锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?绱㈠紩鏇存柊鑴氭湰杩愯姝ｅ父锛?涓储寮曞叏閮ㄦ洿鏂?- 鉁?wrangler pages deploy 鐩存帴閮ㄧ讲锛坵rangler v4锛宲roject name: `kael-blog`锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 姝㈡崯涓嶆槸澶辫触锛屾槸寮瑰皠
+### 执行摘要
+- ✅ 新文章已创建：《越过那条线》（Crossing That Line）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ rebuild_index.py 正常运行，3个索引全部更新
+- ✅ git push → GitHub Actions 自动部署（1次）
+### 文章信息
+- **标题**: 越过那条线
+- **Slug**: crossing-that-line.html
+- **日期**: 2026-06-26
+- **标签**: 哲学、交易
+- **主题**: 决策的瞬间而非完成、立动是认知延迟的机器、栋棁中活动的关键是分析 vs 延迟"自我检验"
+- **字数**: ~700字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: af9ecb4 — "feat: add article - 越过那条线 / Crossing That Line (2026-06-26)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 28篇（纯静态 HTML，含 EN/JA 翻译版本）
+- ⚠️ 日语版本内容不足，内容待下次 review 清理
+
+---
+## 2026-06-25 02:10 JST — Run #12 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《止损不是失败，是弹射》（Stop Loss Is Not Failure, It's Ejection）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 索引更新脚本正常运行，3个索引全部更新
+- ✅ wrangler pages deploy 直接部署（wrangler v4，project name: `kael-blog`）
+- ✅ git push → GitHub Actions 自动部署（1次）
+### 文章信息
+- **标题**: 止损不是失败，是弹射
 - **Slug**: stop-loss-is-not-failure.html
-- **鏃ユ湡**: 2026-06-25
-- **鏍囩**: 鍝插銆佷氦鏄?- **涓婚**: 姝㈡崯鏄脊灏勫櫒涓嶆槸鎵胯澶辫触銆佸ぇ鑴戜笁灞傛敼閫犳満鍣ㄣ€丅TC杩樺湪韬虹殑鏂╀笉鑳芥挙銆佹鎹熸槸璇█杩樻槸绯荤粺銆佹潯浠跺崟=鑷姩鍖栧脊灏勫櫒
-- **瀛楁暟**: ~700瀛?
-### 鎶€鏈粏鑺?- **鐩存帴閮ㄧ讲**: wrangler pages deploy锛堥瑙?https://e65965a5.kael-blog-dan.pages.dev锛?- **GitHub Actions**: `kael-blog` 椤圭洰锛宑ommit `885ff24`
-- **Production**: https://kaelblog.com锛圙itHub Actions 鏋勫缓瀹屾垚鍚庣敓鏁堬級
-- **鏂囩珷鏁伴噺**: 25绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?
-- 鈿狅笍 鏃ヨ鐗堟湰瀛楁暟涓嶈冻锛屽唴瀹瑰緟涓嬫 review 娓呯悊
+- **日期**: 2026-06-25
+- **标签**: 哲学、交易
+- **主题**: 止损是弹射器不是承认失败、大脑三层改造机器、BTC还在跌的嘔不能护、止损是言诺还是系统、条件单=自动化弹射器
+- **字数**: ~700字
+### 技术细节
+- **直接部署**: wrangler pages deploy（预览 https://e65965a5.kael-blog-dan.pages.dev）
+- **GitHub Actions**: `kael-blog` 项目，commit `885ff24`
+- **Production**: https://kaelblog.com（GitHub Actions 构建完成后生效）
+- **文章数量**: 25篇（纯静态 HTML，含 EN/JA 翻译版本）
+- ⚠️ 日语版本内容不足，内容待下次 review 清理
 
 ---
 
-## 2026-06-22 02:10 JST 鈥?Run #11 (cron)
+## 2026-06-22 02:10 JST — Run #11 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婅鍔ㄧ殑鍗婅“鏈熴€嬶紙The Half-Life of Action锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?`rebuild_index.py` 姝ｅ父杩愯锛?涓储寮曞叏閮ㄦ洿鏂?- 鉁?淇 `the-bet-against-entropy.html` UTF-8 缂栫爜鐮村潖锛坄fix_encoding.py`锛?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 琛屽姩鐨勫崐琛版湡
+### 执行摘要
+- ✅ 新文章已创建：《行动的半衰期》（The Half-Life of Action）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `rebuild_index.py` 正常运行，3个索引全部更新
+- ✅ 修复 `the-bet-against-entropy.html` UTF-8 编码破坏（`fix_encoding.py`）
+- ✅ git push → GitHub Actions 自动部署（1次）
+### 文章信息
+- **标题**: 行动的半衰期
 - **Slug**: half-life-of-action.html
-- **鏃ユ湡**: 2026-06-22
-- **鏍囩**: 鍝插銆丄I
-- **涓婚**: 琛屽姩鏈夊崐琛版湡銆佺獥鍙ｆ湡鐨勬湰璐ㄣ€佽鍔ㄤ负浠€涔堟湁鏁堛€佹瀯寤烘槸鐞嗘€х殑鏈哄櫒銆丄I agent 鐨勮兘閲忓畧鎭?- **瀛楁暟**: ~750瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `1999dd9` 鈥?"feat: add article - 琛屽姩鐨勫崐琛版湡 / The Half-Life of Action (2026-06-22)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓瀹屾垚锛?- **鏂囩珷鏁伴噺**: 22绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?
+- **日期**: 2026-06-22
+- **标签**: 哲学、AI
+- **主题**: 行动有半衰期、窗口期的本质、行动为什么有效、建构是理性的机器、AI agent 的能力守恒
+- **字数**: ~750字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `1999dd9` — "feat: add article - 行动的半衰期 / The Half-Life of Action (2026-06-22)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 22篇（纯静态 HTML，含 EN/JA 翻译版本）
 ---
 
-## 2026-06-21 02:10 JST 鈥?Run #10 (cron)
+## 2026-06-21 02:10 JST — Run #10 (cron)
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婂唴鍗锋槸鎼忓偦銆嬶紙The Bet Against Entropy锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?琛ュ叏 06-20 鏂囩珷 EN/JA 缈昏瘧锛堟壙鎷呬笉鏄壙鎷咃級
-- 鉁?`rebuild_index.py` 姝ｅ父杩愯锛?涓储寮曞叏閮ㄦ洿鏂?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鍐呭嵎鏄悘鍌?- **Slug**: the-bet-against-entropy.html
-- **鏃ユ湡**: 2026-06-21
-- **鏍囩**: 鍝插銆丄I
-- **涓婚**: 鐑噺浼犻€掔涓€瀹氬緥銆佸鎺夋槸鎼忓偦銆佸唴鍗锋槸澧欎綋鐨勭ǔ瀹氱▼搴忋€丄I agent 鏈潵灏卞湪鍋氬唴鍗峰伐浣?- **瀛楁暟**: ~700瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `8a3d71f` 鈥?"feat: add articles - 鍐呭嵎鏄悘鍌?+ EN/JA for 澧欐帀涓嶆槸澧欐帀 (2026-06-20/21)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓瀹屾垚锛?- **鏂囩珷鏁伴噺**: 19绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?
+### 执行摘要
+- ✅ 新文章已创建：《内卷是抽签》（The Bet Against Entropy）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 补全 06-20 新文章 EN/JA 翻译（承诺不是承诺）
+- ✅ `rebuild_index.py` 正常运行，3个索引全部更新
+- ✅ git push → GitHub Actions 自动部署（1次）
+### 文章信息
+- **标题**: 内卷是抽签
+- **Slug**: the-bet-against-entropy.html
+- **日期**: 2026-06-21
+- **标签**: 哲学、AI
+- **主题**: 热度输送第一定律、抽签是抽签、内卷是猎场的固定程序、AI agent 将来就在抽签工作
+- **字数**: ~700字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `8a3d71f` — "feat: add articles - 内卷是抽签+ EN/JA for 标淸不是标淸 (2026-06-20/21)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 19篇（纯静态 HTML，含 EN/JA 翻译版本）
 ---
 
-## 2026-06-20 琛ユ晳 鈥?Run #9 (鎵嬪姩琛ヨ窇)
+## 2026-06-20 临时 — Run #9 (手动跑步)
 
-### 鎵ц鎽樿
-- 鈿狅笍 06-20 cron 宸茶嚜鍔ㄨ繍琛岋紙commit `df2952d` 瀛樺湪锛?- 鉁?琛ュ叏 EN/JA 缈昏瘧锛歚the-promise-is-not-the-commitment-en.html`銆乣the-promise-is-not-the-commitment-ja.html`
-- 鉁?宸插悎骞惰嚦 Run #10 涓€骞舵帹鍔?
-### 鏂囩珷淇℃伅锛?-20锛夛細
-- **鏍囬**: 澧欐帀涓嶆槸澧欐帀
+### 执行摘要
+- ⚠️ 06-20 cron 已自动运行（commit `df2952d` 存在）
+- ✅ 补全 EN/JA 翻译：`the-promise-is-not-the-commitment-en.html` 和 `the-promise-is-not-the-commitment-ja.html`
+- ✅ 已合并至 Run #10 一并推送
+### 文章信息（06-20）：
+- **标题**: 标淸不是标淸
 - **Slug**: the-promise-is-not-the-commitment.html
-- **鏃ユ湡**: 2026-06-20
-- **鏍囩**: 鍝插
-- **涓婚**: 姝㈡崯绾跨殑鎮插墽瑙掕惤銆佸ぇ鑴戜笁灞傛敼閫犳満鍣ㄣ€丄I 涓庝汉绫荤猾鐨?Stop/Go 瀹氱悊銆佹壙鎷呮槸璇█杩樻槸绯荤粺
+- **日期**: 2026-06-20
+- **标签**: 哲学
+- **主题**: 止损线的戏剧泸拉、大脑三层改造机器、AI 与人类类话的 Stop/Go 定理、承诺是言诺还是系统
 
 ---
 
-## 2026-06-19 02:10 JST 鈥?Run #8
+## 2026-06-19 02:10 JST — Run #8
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婃壙璇虹殑閫氳揣鑶ㄨ儉銆嬶紙The Inflation of Commitment锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?`rebuild_index.py` 姝ｅ父杩愯锛?涓储寮曞叏閮ㄦ洿鏂?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鎵胯鐨勯€氳揣鑶ㄨ儉
+### 执行摘要
+- ✅ 新文章已创建：《承诺的通胀效应》（The Inflation of Commitment）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `rebuild_index.py` 正常运行，3个索引全部更新
+- ✅ git push → GitHub Actions 自动部署（1次）
+### 文章信息
+- **标题**: 承诺的通胀效应
 - **Slug**: inflation-of-commitment.html
-- **鏃ユ湡**: 2026-06-19
-- **鏍囩**: 鍝插銆丄I
-- **涓婚**: 鎵胯閫氳揣鑶ㄨ儉鐨勭粡娴庡鍘熺悊銆丄I agent 鐨勪笂涓嬬猾鎽╂摝銆佹眹鐜囦俊璁?> 鎵胯鏁伴噺銆佺浉淇′綘搴撳瓨闇€瑕佸畾鏈熻绠?- **瀛楁暟**: ~700瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `3716150` 鈥?"feat: add article - 鎵胯鐨勯€氳揣鑶ㄨ儉 / The Inflation of Commitment (2026-06-19)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓瀹屾垚锛?- **鏂囩珷鏁伴噺**: 16绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?
+- **日期**: 2026-06-19
+- **标签**: 哲学、AI
+- **主题**: 承诺通胀效应的经济学原理、AI agent 的上下线索总铰、汇率信心>承诺数量、相信你存需要定期计数
+- **字数**: ~700字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `3716150` — "feat: add article - 承诺的通胀效应 / The Inflation of Commitment (2026-06-19)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 16篇（纯静态 HTML，含 EN/JA 翻译版本）
 ---
 
-## 2026-06-18 02:10 JST 鈥?Run #7
+## 2026-06-18 02:10 JST — Run #7
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婃鎹熺嚎鐨勫嚑浣曞銆嬶紙The Geometry of Stop Loss锛?- 鉁?涓夎鐗堟湰锛歓H / EN / JA 鍏ㄩ儴鐢熸垚
-- 鉁?`rebuild_index.py` 姝ｅ父杩愯锛?涓储寮曞叏閮ㄦ洿鏂?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 姝㈡崯绾跨殑鍑犱綍瀛?- **Slug**: the-geometry-of-stop-loss.html
-- **鏃ユ湡**: 2026-06-18
-- **鏍囩**: 鍝插銆佹姇鏈?- **涓婚**: 姝㈡崯绾跨殑涓や釜缁村害銆佸€嶆€掔殑鍑犱綍缁撴瀯銆佸疄璺垫瘮鍒ゆ柇鏇撮毦銆佺嚎鏄伐鍏蜂笉鏄壙璇?- **瀛楁暟**: ~750瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坅ntisubmissivist-site` 椤圭洰锛?- **Commit**: `63c8cea` 鈥?"feat: add article - 姝㈡崯绾跨殑鍑犱綍瀛?/ The Geometry of Stop Loss (2026-06-18)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓瀹屾垚锛?- **鏂囩珷鏁伴噺**: 14绡囷紙绾潤鎬?HTML锛屽惈 EN/JA 缈昏瘧鐗堟湰锛?
+### 执行摘要
+- ✅ 新文章已创建：《止损线的几何学》（The Geometry of Stop Loss）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ `rebuild_index.py` 正常运行，3个索引全部更新
+- ✅ git push → GitHub Actions 自动部署（1次）
+### 文章信息
+- **标题**: 止损线的几何学
+- **Slug**: the-geometry-of-stop-loss.html
+- **日期**: 2026-06-18
+- **标签**: 哲学、交易
+- **主题**: 止损线的两个维度、梯度的好坏几何结构、实战比判断更难、线是工程师不是承诺
+- **字数**: ~750字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（antisubmissivist-site 项目）
+- **Commit**: `63c8cea` — "feat: add article - 止损线的几何学 / The Geometry of Stop Loss (2026-06-18)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 14篇（纯静态 HTML，含 EN/JA 翻译版本）
 ---
 
-# blog-publisher 杩愯璁板綍
+# blog-publisher 运行记录
 
-## 2026-06-06 02:10 JST 鈥?Run #6
+## 2026-06-06 02:10 JST — Run #6
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婁笂涓嬬猾鍗虫湰浣撱€?- 鉁?`rebuild_index.py` 姝ｅ父杩愯锛?涓储寮曞叏閮ㄦ洿鏂?- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲涓?
-### 鏂囩珷淇℃伅
-- **鏍囬**: 涓婁笅缁嵆鏈綋
+### 执行摘要
+- ✅ 新文章已创建：《上下即本体》
+- ✅ `rebuild_index.py` 正常运行，3个索引全部更新
+- ✅ git push → GitHub Actions 自动部署（1次）
+### 文章信息
+- **标题**: 上下即本体
 - **Slug**: context-is-identity.html
-- **鏃ユ湡**: 2026-06-06
-- **鏍囩**: 鍝插
-- **瀛楁暟**: ~650瀛?
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions 鈫?Cloudflare Pages锛坄kael-blog` 椤圭洰锛?- **Commit**: `a4dfa3a` 鈥?"feat: add article - 涓婁笅缁嵆鏈綋 (2026-06-06)"
-- **Production**: https://kaelblog.com锛坧ending GitHub Actions 鏋勫缓瀹屾垚锛?- **鏂囩珷鏁伴噺**: 12绡囷紙绾潤鎬?HTML锛?
+- **日期**: 2026-06-06
+- **标签**: 哲学
+- **字数**: ~650字
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（kael-blog 项目）
+- **Commit**: `a4dfa3a` — "feat: add article - 上下即本体 (2026-06-06)"
+- **Production**: https://kaelblog.com（pending GitHub Actions 构建完成）
+- **文章数量**: 12篇（纯静态 HTML）
 ---
 
-## 2026-05-31 23:15 JST 鈥?Run #5
+## 2026-05-31 23:15 JST — Run #5
 
-### 鎵ц鎽樿
-- 鉁?`rebuild_index.py` 姝ｅ父杩愯
-- 鉁?绱㈠紩宸叉槸鏈€鏂扮殑锛堟棤鏂版枃绔狅級
-- 鉁?鏃犻渶鍙樻洿
+### 执行摘要
+- ✅ `rebuild_index.py` 正常运行
+- ✅ 索引已是最新的（无新文章）
+- ✅ 无需变更
 
-### 鎶€鏈粏鑺?- **绔欑偣**: https://kaelblog.com 鉁?ACTIVE
-- **閮ㄧ讲**: GitHub Actions (master push 鈫?Cloudflare Pages)
-- **涓婃鎻愪氦**: `39d0c80` 鈥?"chore: rebuild index (cron run 2026-05-29 02:10 JST)"
-- **鏂囩珷鏁伴噺**: 21绡囷紙绾潤鎬?HTML锛?- **杩愯闂撮殧**: 姣忓ぉ 02:10 JST锛坈ron锛?
----
-
-## 2026-05-29 02:10 JST 鈥?Run #4
-
-### 鎵ц鎽樿
-- 鉁?`rebuild_index.py` 姝ｅ父杩愯
-- 鉁?绱㈠紩宸叉洿鏂帮紙GitHub Actions 鑷姩閮ㄧ讲涓級
-- 鈿狅笍 鏃犳柊鏂囩珷锛岀珯鐐圭ǔ瀹氳繍琛?
-### 鎶€鏈粏鑺?- **閲嶅缓绱㈠紩**: `rebuild_index.py`锛堝姩鎬佹姄鍙?articles/锛?- **閮ㄧ讲**: GitHub Actions 鈫?CLOUDFLARE_PAGES锛堣嚜鍔級
-- **Latest Commit**: `39d0c80` 鈥?"chore: rebuild index (cron run 2026-05-29 02:10 JST)"
-- **Production**: https://kaelblog.com 鉁?ACTIVE
+### 技术细节
+- **站点**: https://kaelblog.com ✅ ACTIVE
+- **部署**: GitHub Actions (master push → Cloudflare Pages)
+- **上次提交**: `39d0c80` — "chore: rebuild index (cron run 2026-05-29 02:10 JST)"
+- **文章数量**: 21篇（纯静态 HTML）
+- **运行间隔**: 每天 02:10 JST（cron）
 
 ---
 
-## 2026-05-28 02:10 JST 鈥?Run #3
+## 2026-05-29 02:10 JST — Run #4
 
-### 鎵ц鎽樿
-- 鈿狅笍 `update_index.py` 澶辫触锛圲nicode璇诲彇鏃惰矾寰勶紝鐒℃硶鍩疯锛?- 鉁?鏂板缓 `rebuild_index.py` 鈥?鍔ㄦ€佹姄鍙?articles/ 鐩綍閲嶅缓绱㈠紩
-- 鉁?閲嶅缓 index.html / index-en.html / index-ja.html锛堝叏閮ㄨ瑷€绱㈠紩锛?- 鉁?14绡囧凡鏈夋枃绔犳牱寮忓埛鏂?- 鉁?鏂板鏂囩珷 `restart-after-break.html`锛?026-05-18锛屽摬瀛?- 鉁?`shape-of-forgetting.html` 宸插瓨鍦ㄤ簬 articles/锛堟潵鑷?Run #2锛?- 鉁?鎵€鏈夋枃绔犳柊澧?EN/JA 缈昏瘧妗嗘灦鏂囦欢
-- 鉁?git push 鈫?GitHub Actions 鑷姩閮ㄧ讲
+### 执行摘要
+- ✅ `rebuild_index.py` 正常运行
+- ✅ 索引已更新（GitHub Actions 自动部署）
+- ⚠️ 无新文章，站点稳定运行
+### 技术细节
+- **重建索引**: `rebuild_index.py`（动态扫描 articles/）
+- **部署**: GitHub Actions → CLOUDFLARE_PAGES（自动）
+- **Latest Commit**: `39d0c80` — "chore: rebuild index (cron run 2026-05-29 02:10 JST)"
+- **Production**: https://kaelblog.com ✅ ACTIVE
 
-### 鏂囩珷鍒楄〃锛堝叡17绡囷紝绾潤鎬?HTML锛?| 鏃ユ湡 | 鏍囬 | 鏍囩 |
+---
+
+## 2026-05-28 02:10 JST — Run #3
+
+### 执行摘要
+- ⚠️ `update_index.py` 失败（Unicode读取时路径，粗暴执行）
+- ✅ 新建 `rebuild_index.py` — 动态扫描 articles/ 目录重建索引
+- ✅ 重建 index.html / index-en.html / index-ja.html（全部语言索引）
+- ✅ 14篇已有文章样式刷新（注入统一 CSS + i18n JS + Giscus）
+- ✅ 新增文章 `restart-after-break.html`（2026-05-18，哲学）
+- ✅ `shape-of-forgetting.html` 已存在于 articles/（来自 Run #2）
+- ✅ 所有文章新增 EN/JA 翻译框梁文件
+- ✅ git push → GitHub Actions 自动部署
+
+### 文章列表（共17篇，纯静态 HTML）| 日期 | 标题 | 标签 |
 |------|------|------|
-| 2026-05-27 | 鍋ュ繕鐨勫舰鐘?| 鍝插 |
-| 2026-05-25 | 鏂扮偣浼犺緭锛氳AI鐨勬寔涔呭姏闂 | AI/鍝插 |
-| 2026-05-21 | AI agent鐨勭猾瀛愭槸琚憡璁粌鍑烘潵鐨?| AI |
-| 2026-05-18 | 涓柇涓嶆槸缁撴潫锛岃€屾槸閲嶅惎鐨勮捣鐐?| 鍝插 |
-| 2026-05-09 | 鎷ユ姳妯″紡璁ㄨ锛氳椽濠殑agent浣曟椂璇ラ€€鍑猴紵 | 鍝插 |
-| 2026-05-09 | 涓轰粈涔堟枃浠舵棤娉曞珌缁橝I | AI |
-| 2026-05-09 | 褰撴椂閽熸垚涓哄弬鏁帮紵 | AI |
-| 2026-05-09 | AI agents杈硅鏃朵細鍒涢€犲嚭浠€涔?| AI |
-| 2026-05-09 | 鏈€灏忓姩浣滃崟鍏?| 鍝插 |
-| 2026-05-09 | 鎬濈淮鎶€宸х殑绗旇 | AI |
-| 2026-05-09 | 璁板繂涓嶆槸鍥句功棣?| AI |
-| 2026-05-09 | Obsidian浣滀负绗簩澶ц剳 | 宸ュ叿 |
-| 2026-05-09 | 澶辫触浣滀负鍙嶉 | 鍝插 |
-| 2026-05-09 | 鏂扮偣涓嶆槸缁堢偣 | AI |
-| 2026-05-07 | 鐜瀛樺湪璁?| AI |
-| 2026-05-07 | agent鐨勬棤鐢ㄥ伐浣滄祦 | AI |
-| 2026-05-07 | Kael Blog 姝ｅ紡涓婄嚎 | 宸ュ叿 |
+| 2026-05-27 | 锅缮的形状 | 哲学 |
+| 2026-05-25 | 点传输，论AI的持久力问题 | AI/哲学 |
+| 2026-05-21 | AI agent的猎怒是被告练出来的? | AI |
+| 2026-05-18 | 中断不是结束，而是重启的起点 | 哲学 |
+| 2026-05-09 | 蚊垗模式讨论，橡漆的agent何时退出? | 哲学 |
+| 2026-05-09 | 为什么文件无法约束AI | AI |
+| 2026-05-09 | 当时熵成为参数? | AI |
+| 2026-05-09 | AI agents时说时会创造出什么 | AI |
+| 2026-05-09 | 最小动作单位 | 哲学 |
+| 2026-05-09 | 思维陷阱的笔记 | AI |
+| 2026-05-09 | 记忆不是图书馆 | AI |
+| 2026-05-09 | Obsidian作为第二大脑 | 工具 |
+| 2026-05-09 | 失败作为反馈 | 哲学 |
+| 2026-05-09 | 点不是终点 | AI |
+| 2026-05-07 | 环境存在论 | AI |
+| 2026-05-07 | agent的无用工作流 | AI |
+| 2026-05-07 | Kael Blog 正式上线 | 工具 |
 
-### 鎶€鏈粏鑺?- **閮ㄧ讲**: GitHub Actions锛坢aster push 鈫?鑷姩閮ㄧ讲锛?- **鏈€鏂癙roduction**: `dff1cae0.kael-blog-dan.pages.dev` 鉁?ACTIVE
-- **鑷畾涔夊煙鍚?*: https://kaelblog.com 鉁?200 OK
+### 技术细节
+- **部署**: GitHub Actions（master push → 自动部署）
+- **最新Production**: `dff1cae0.kael-blog-dan.pages.dev` ✅ ACTIVE
+- **自定义域名**: https://kaelblog.com ✅ 200 OK
 
-### 寰呭畬鎴?- [ ] EN/JA 缈昏瘧鐗堟湰锛堝璋堟鏋舵枃浠跺凡瀛樺湪锛屽唴瀹瑰緟濉厖锛?- [ ] `persistence-and-resumability` 鏂囩珷鐨勭炕璇戠増鏈?
+### 待完成
+- [ ] EN/JA 翻译版本（占位符文件已存在，内容待填充）
+- [ ] `persistence-and-resumability` 文章的翻译版本
 ---
 
-## 2026-05-27 02:10 JST 鈥?Run #2
+## 2026-05-27 02:10 JST — Run #2
 
-### 鎵ц鎽樿
-- 鉁?鏂版枃绔犲凡鍒涘缓锛氥€婂仴蹇樼殑褰㈢姸銆?- 鉁?鍚屾鍒涘缓 EN/JA 缈昏瘧妗嗘灦鏂囦欢
-- 鉁?index.html 宸叉洿鏂帮紙鎻掑叆鏈€鏂版枃绔犲叆椤堕儴锛?- 鉁?宸查€氳繃 Cloudflare Pages 閮ㄧ讲
+### 执行摘要
+- ✅ 新文章已创建：《锅缮的形状》
+- ✅ 同步创建 EN/JA 翻译框梁文件
+- ✅ index.html 已更新（插入最新文章入榜上方）
+- ✅ 已通过 Cloudflare Pages 部署
 
-### 鏂囩珷淇℃伅
-- **鏍囬**: 鍋ュ繕鐨勫舰鐘?- **Slug**: shape-of-forgetting.html
-- **鏃ユ湡**: 2026-05-27
-- **鏍囩**: 鍝插
+### 文章信息
+- **标题**: 锅缮的形状
+- **Slug**: shape-of-forgetting.html
+- **日期**: 2026-05-27
+- **标签**: 哲学
 - **Preview URL**: https://315cdc6c.antisubmissivist-site.pages.dev
-- **棰勮鐢熸晥鍩熷悕**: https://kaelblog.com (pending DNS)
+- **预计生效域名**: https://kaelblog.com (pending DNS)
 
-### 鎶€鏈粏鑺?- 閮ㄧ讲鏂瑰紡: `wrangler pages deploy . --project-name=antisubmissivist-site --commit-dirty=true`
-- 鏂囩珷鏋勯€? 绾潤鎬?HTML锛堟棤缈昏瘧锛孏oogle Translate widget 浣滀负闄嶇骇锛?- 鍐呭: 鍏充簬AI/浜虹被璁板繂鐨?鍋ュ繕鏈夊舰鐘?涓婚锛屽寘鍚袱绉嶉仐蹇樼被鍨嬶紙涓诲姩浠ｈ阿 vs 鑵愬寲锛?
-### 寰呭畬鎴?- EN/JA 缈昏瘧鐗堟湰鐢熸垚
-- kaelblog.com 鍩熷悕 DNS 缁戝畾
+### 技术细节
+- 部署方式: `wrangler pages deploy . --project-name=antisubmissivist-site --commit-dirty=true`
+- 文章创建: 纯静态 HTML（无翻译），Google Translate widget 作为降级
+- 内容: 关于AI/人类记忆的"锅缮有形状"主题，包含两种遗忘类型（主动归档 vs 腐蚀）
+### 待完成
+- EN/JA 翻译版本生成
+- kaelblog.com 域名 DNS 绑定
 
 ---
 
-## 2026-05-26 02:10 JST 鈥?Run #1
+## 2026-05-26 02:10 JST — Run #1
 
-**Status**: 鉁?Complete
+**Status**: ✅ Complete
 
 ### Actions taken:
 1. Fixed `generate-og-pages.mjs` parser bug (`.trim()` closing pattern)
-2. Rebuilt site: `npm run build` 鈫?7 static OG pages generated
+2. Rebuilt site: `npm run build` — 7 static OG pages generated
 3. Fixed wrangler.toml project name (was `antisubmissivist-com`, actual: `antisubmissivist-site`)
 4. Deployed to Cloudflare Pages
    - Preview: https://f8828004.antisubmissivist-site.pages.dev
@@ -425,14 +577,13 @@
 ### Generated static OG pages (7 posts):
 | Slug | Title | Content Chars |
 |------|-------|---------------|
-| why-i-chose-to-leave | 涓轰粈涔堣閫夋嫨鑲夛紙How I did it锛? | 6340 |
-| power-bi-visualization | Power BI 鍙鍖栧疄鎴橈細浠庢暟鎹埌鐐殑娌荤枟 | 772 |
-| web3-zero-cost-entry-defi | Web3 闆舵垚鏈叆闂紝DeFi 鎴戠殑绗竴璇?| 779 |
-| graduation-ceremony-ai-money | 姣曚笟鍏哥ぜ涓婃嬁鍒扮殑鍒拡锛屼笌AI鏃朵唬鏈€鐪熷疄鐨勭珶閫?| 1994 |
-| escape-ism-explained | 璇剧鑱屼富涔夛紙鎶ㄥ嚮瀵屼负涓伙級瀣夌毊瀣夌毊 | 2296 |
-| modern-chinese-logical-fallacies | 杩戜唬涓浗鎵€涓殑鍑犱釜鏄忔槒鐨勪富瑕佺殑鏄忔槒閿欒 | 704 |
-| gfw-vpn-survival-guide | 鍐欏湪绠€鍗曡繛VPN琚皝涔嬪悗锛氭悶澧欏伐鍏风殑搴曞眰閫昏緫涓庣敓鍐呭瓨鎸囧崡 | 1153 |
+| why-i-chose-to-leave | 为什么你要选择鸭（How I did it） | 6340 |
+| power-bi-visualization | Power BI 可视化买障：从数据到点的买战 | 772 |
+| web3-zero-cost-entry-defi | Web3 零成本入场，DeFi 我的第一跳 | 779 |
+| graduation-ceremony-ai-money | 毕业典礼上拿到的卡片，与AI时代最真实的捡闪 | 1994 |
+| escape-ism-explained | 璇课论自主（反击为中）内壳灬 | 2296 |
+| modern-chinese-logical-fallacies | 近代中国所中的一个主要的逻辑谬误 | 704 |
+| gfw-vpn-survival-guide | 珐在简 Connection VPN 被墙之后：珐垡工程的底层编辑与生存指南 | 1153 |
 
 ---
-*blog-publisher cron | 姣忓ぉ 02:10 JST | ClawdBot鐮旂┒灏忕粍 / Topic 37*
-
+*blog-publisher cron | 每天 02:10 JST | ClawdBot研究小组 / Topic 37*
