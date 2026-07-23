@@ -1,3 +1,53 @@
+﻿
+## 2026-07-24 02:10 JST — Run #30 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《证据是你自己制造的》（Evidence Is Manufactured）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+- ✅ 部署验证：https://kaelblog.com/articles/evidence-is-manufactured.html 返回 200 OK
+
+### 文章信息
+- **标题**: 证据是你自己制造的
+- **Slug**: evidence-is-manufactured
+- **日期**: 2026-07-24
+- **标签**: 哲学,交易
+- **主题**: 市场不给你证据，证据是你自己制造的。你相信某件事是真的，这不是证据；你做了让它变成真的，这才是证据。核心：相信≠证据，行动才是；时间不是证据，时间只是制造证据的机会；停止问市场要证据，开始问自己有没有制造证据
+- **字数**: ~750字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（kael-blog 项目）
+- **Commit**: 77415c7 — feat: add article - 证据是你自己制造的 / Evidence Is Manufactured (2026-07-24)
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 53篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_evidence_is_manufactured.py
+
+
+## 2026-07-23 02:10 JST — Run #29 (cron)
+
+### 执行摘要
+- ✅ 新文章已创建：《市场没有记忆，但你有》（The Market Has No Memory, But You Do）
+- ✅ 三语版本：ZH / EN / JA 全部生成
+- ✅ 脚本直接更新3个索引（index.html / index-en.html / index-ja.html）
+- ✅ git push → GitHub Actions 自动部署
+- ✅ 部署验证：https://kaelblog.com/articles/the-market-has-no-memory.html 返回 200 OK
+
+### 文章信息
+- **标题**: 市场没有记忆，但你有
+- **Slug**: the-market-has-no-memory
+- **日期**: 2026-07-23
+- **标签**: 哲学, 交易
+- **主题**: 市场每小时都在重启，过去的亏损/盈利经验对它来说连噪音都算不上；真正贵的不是亏损本身，是亏损留下的记忆；盈利也会通过记忆编码变成过度自信的标签；在决策前清空只属于你自己的缓存
+- **字数**: ~850字
+
+### 技术细节
+- **部署**: GitHub Actions → Cloudflare Pages（kael-blog 项目）
+- **Commit**: a12c2f1 — feat: add article - 市场没有记忆，但你有 / The Market Has No Memory, But You Do (2026-07-23)
+- **Production**: https://kaelblog.com ✅ ACTIVE
+- **文章数量**: 52篇（纯静态 HTML，含 EN/JA 翻译版本）
+- **脚本**: add_the_market_has_no_memory.py
+
 ## 2026-07-22 02:10 JST — Run #28 (cron)
 
 ### 执行摘要
